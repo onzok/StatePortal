@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="./favicon-white.png">
   
   <style>
-    /* ===== RESET & BASE ===== */
+    /*  RESET & BASE  */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -55,9 +55,10 @@
       color: var(--text-color);
       display: flex;
       flex-direction: column;
+      animation: none;
     }
 
-    /* ===== HEADER ===== */
+    /*  HEADER  */
     header {
       display: flex;
       align-items: center;
@@ -101,7 +102,7 @@
       margin: 0;
     }
 
-    /* ===== NAVIGATION ===== */
+    /*  NAVIGATION  */
     .header-nav {
       display: flex;
       gap: 1.5rem;
@@ -152,7 +153,7 @@
       background: rgba(255,255,255,0.25);
     }
 
-    /* ===== SEARCH BAR ===== */
+    /*  SEARCH BAR  */
     .search-container {
       display: flex;
       align-items: center;
@@ -239,7 +240,7 @@
       margin-left: 0.3rem;
     }
 
-    /* ===== FULL-WIDTH SECTION HEADER ===== */
+    /*  FULL-WIDTH SECTION HEADER  */
     .section-header-full {
       background: var(--section-header-bg);
       padding: 1.5rem 1.5rem 2rem;
@@ -307,13 +308,13 @@
       display: inline-block;
     }
 
-    /* ===== SORTING CONTROLS ===== */
+    /*  SORTING CONTROLS  */
     .sorting-controls {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.8rem;
-      margin: 1.5rem 0 1rem 0;
+      margin: 1.5rem 0 0.5rem 0;
       padding: 0.5rem 0;
     }
 
@@ -357,7 +358,47 @@
       margin-left: 0.5rem;
     }
 
-    /* ===== MAIN ===== */
+    /*  ADMINISTRATION DIVIDER  */
+    .admin-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+      margin-top: 0.5rem;
+      position: relative;
+    }
+
+    .admin-divider:first-of-type {
+      margin-top: 0;
+    }
+
+    .admin-divider .admin-line {
+      flex: 1;
+      height: 2px;
+      border-radius: 2px;
+      background: #c0c0c0;
+      opacity: 0.5;
+    }
+
+    .admin-divider .admin-label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-color);
+      opacity: 0.7;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      padding: 0.2rem 0.8rem;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.03);
+    }
+
+    .admin-divider .admin-count {
+      font-size: 0.75rem;
+      opacity: 0.5;
+      font-weight: 400;
+    }
+
+    /*  MAIN  */
     main {
       max-width: 1300px;
       margin: 0 auto;
@@ -371,7 +412,7 @@
       margin-bottom: 2.8rem;
     }
 
-    /* ===== EXECUTIVE ORDER CARDS ===== */
+    /*  EXECUTIVE ORDER CARDS  */
     .order-grid {
       display: flex;
       flex-direction: column;
@@ -457,7 +498,7 @@
       transform: rotate(180deg);
     }
 
-    /* ===== COLLAPSIBLE CONTENT ===== */
+    /*  COLLAPSIBLE CONTENT  */
     .order-content {
       max-height: 0;
       overflow: hidden;
@@ -485,7 +526,7 @@
       transform: translateY(0);
     }
 
-    /* ===== EXECUTIVE ORDER CONTENT - TWO COLUMN LAYOUT ===== */
+    /*  EXECUTIVE ORDER CONTENT - TWO COLUMN LAYOUT  */
     .order-block {
       font-family: 'Poppins', sans-serif;
       background: var(--code-bg);
@@ -499,7 +540,6 @@
       transition: background-color 0.3s, border-color 0.3s;
     }
 
-    /* Two-column provision layout - same as State Code */
     .order-provision {
       display: flex;
       align-items: flex-start;
@@ -551,7 +591,7 @@
       opacity: 0.8;
     }
 
-    /* ===== SEARCH HIGHLIGHT ===== */
+    /*  SEARCH HIGHLIGHT  */
     .highlight {
       background-color: var(--highlight-bg);
       color: var(--highlight-text);
@@ -560,7 +600,7 @@
       font-weight: 600;
     }
 
-    /* ===== FOOTER ===== */
+    /*  FOOTER  */
     footer {
       background: var(--footer-bg);
       color: var(--footer-text);
@@ -627,7 +667,35 @@
       margin-top: 0.2rem;
     }
 
-    /* ===== RESPONSIVE ===== */
+    /*  PAGE TRANSITIONS - MAIN SECTION ONLY  */
+    main {
+      animation: slideIn 0.4s ease-out;
+      animation-fill-mode: both;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+    }
+
+    /*  RESPONSIVE  */
     @media (max-width: 700px) {
       .header-left h1 { font-size: 1rem; }
       .header-logo { width: 36px; height: 36px; }
@@ -640,7 +708,19 @@
       .search-container button { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
       .sorting-controls select { min-width: 150px; }
 
-      /* Two-column becomes stacked on mobile */
+      .admin-divider {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem 0.3rem;
+      }
+      .admin-divider .admin-line {
+        order: 3;
+        flex-basis: 100%;
+      }
+      .admin-divider .admin-label {
+        font-size: 0.85rem;
+      }
+
       .order-provision {
         flex-direction: column;
         gap: 0.1rem;
@@ -697,7 +777,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!--  HEADER  -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -705,7 +785,7 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!-- ===== NAVIGATION ===== -->
+      <!--  NAVIGATION  -->
       <nav class="header-nav">
         <a href="index.html">State Code</a>
         <a href="executive-orders.html" class="active">Executive Orders</a>
@@ -722,7 +802,7 @@
     </div>
   </header>
 
-  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
+  <!--  FULL-WIDTH SECTION HEADER  -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Executive Orders</h2>
@@ -743,10 +823,10 @@
     </div>
   </div>
 
-  <!-- ===== MAIN ===== -->
+  <!--  MAIN  -->
   <main>
     <section>
-      <!-- ===== SORTING CONTROLS ===== -->
+      <!--  SORTING CONTROLS  -->
       <div class="sorting-controls">
         <label for="administrationFilter">Filter by Administration:</label>
         <select id="administrationFilter">
@@ -761,7 +841,7 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!--  FOOTER  -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -778,10 +858,10 @@
     </div>
   </footer>
 
-  <!-- ===== EXECUTIVE ORDERS DATA (external) ===== -->
+  <!--  EXECUTIVE ORDERS DATA (external)  -->
   <script src="executive-orders-data.js"></script>
 
-  <!-- ===== MAIN APPLICATION ===== -->
+  <!--  MAIN APPLICATION  -->
   <script>
     (function() {
       'use strict';
@@ -859,12 +939,21 @@
         renderFilteredCards();
       }
 
-      // ===== RENDER FUNCTION =====
+      //  RENDER FUNCTION WITH ADMIN DIVIDERS 
       function renderFilteredCards() {
         grid.innerHTML = '';
         allCards = [];
 
-        // Count total provisions
+        // Group orders by administration
+        const groupedOrders = {};
+        filteredOrders.forEach(order => {
+          const admin = order.administration || 'Unknown Administration';
+          if (!groupedOrders[admin]) {
+            groupedOrders[admin] = [];
+          }
+          groupedOrders[admin].push(order);
+        });
+
         let totalProvisions = 0;
         filteredOrders.forEach(order => {
           if (order.provisions) {
@@ -874,97 +963,126 @@
 
         statsBadge.textContent = `${filteredOrders.length} orders · ${totalProvisions} provisions`;
 
-        // Build each order card
-        filteredOrders.forEach((order, index) => {
-          const card = document.createElement('div');
-          card.className = 'order-card';
-          card.dataset.title = `${order.number} - ${order.title}`;
+        // Build each administration group
+        const adminKeys = Object.keys(groupedOrders);
+        adminKeys.forEach((admin, adminIndex) => {
+          const orders = groupedOrders[admin];
 
-          const orderColor = order.color || '#f0f4f8';
+          // ----- ADMIN DIVIDER (neutral gray) -----
+          const divider = document.createElement('div');
+          divider.className = 'admin-divider';
+          if (adminIndex === 0) {
+            divider.style.marginTop = '0';
+          }
+          
+          const labelSpan = document.createElement('span');
+          labelSpan.className = 'admin-label';
+          labelSpan.textContent = admin;
+          
+          const countSpan = document.createElement('span');
+          countSpan.className = 'admin-count';
+          countSpan.textContent = `${orders.length} order${orders.length > 1 ? 's' : ''}`;
+          
+          const lineSpan = document.createElement('span');
+          lineSpan.className = 'admin-line';
+          
+          divider.appendChild(labelSpan);
+          divider.appendChild(countSpan);
+          divider.appendChild(lineSpan);
+          grid.appendChild(divider);
 
-          // ----- HEADER -----
-          const header = document.createElement('div');
-          header.className = 'order-card-header';
+          // Build each order card in this administration
+          orders.forEach((order, index) => {
+            const card = document.createElement('div');
+            card.className = 'order-card';
+            card.dataset.title = `${order.number} - ${order.title}`;
 
-          const nameSpan = document.createElement('span');
-          nameSpan.className = 'order-name';
-          nameSpan.innerHTML = `
-            ${order.number} — ${order.title}
-            <span class="order-date">${order.date}</span>
-            <span class="order-admin">${order.administration || ''}</span>
-            <span class="order-badge">Executive Order</span>
-          `;
+            const orderColor = order.color || '#f0f4f8';
 
-          const iconSpan = document.createElement('span');
-          iconSpan.className = 'expand-icon';
-          iconSpan.textContent = '▾';
+            // ----- HEADER -----
+            const header = document.createElement('div');
+            header.className = 'order-card-header';
 
-          header.appendChild(nameSpan);
-          header.appendChild(iconSpan);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'order-name';
+            nameSpan.innerHTML = `
+              ${order.number} — ${order.title}
+              <span class="order-date">${order.date}</span>
+              <span class="order-admin">${order.administration || ''}</span>
+              <span class="order-badge">Executive Order</span>
+            `;
 
-          // ----- CONTENT -----
-          const content = document.createElement('div');
-          content.className = 'order-content';
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'expand-icon';
+            iconSpan.textContent = '▾';
 
-          const innerWrapper = document.createElement('div');
-          innerWrapper.className = 'order-content-inner';
+            header.appendChild(nameSpan);
+            header.appendChild(iconSpan);
 
-          const orderBlock = document.createElement('div');
-          orderBlock.className = 'order-block';
-          orderBlock.style.backgroundColor = orderColor;
-          orderBlock.style.borderLeftColor = darkenColor(orderColor, 40);
+            // ----- CONTENT -----
+            const content = document.createElement('div');
+            content.className = 'order-content';
 
-          // Build provisions with two-column layout
-          if (order.provisions && order.provisions.length > 0) {
-            order.provisions.forEach((item) => {
-              const provisionDiv = document.createElement('div');
-              provisionDiv.className = 'order-provision';
+            const innerWrapper = document.createElement('div');
+            innerWrapper.className = 'order-content-inner';
 
-              const secSpan = document.createElement('span');
-              secSpan.className = 'section-number';
-              secSpan.textContent = item.sec || '';
+            const orderBlock = document.createElement('div');
+            orderBlock.className = 'order-block';
+            orderBlock.style.backgroundColor = orderColor;
+            orderBlock.style.borderLeftColor = darkenColor(orderColor, 40);
 
-              const textSpan = document.createElement('span');
-              textSpan.className = 'provision-text';
-              textSpan.textContent = item.text || '';
+            // Build provisions with two-column layout
+            if (order.provisions && order.provisions.length > 0) {
+              order.provisions.forEach((item) => {
+                const provisionDiv = document.createElement('div');
+                provisionDiv.className = 'order-provision';
 
-              provisionDiv.appendChild(secSpan);
-              provisionDiv.appendChild(textSpan);
-              orderBlock.appendChild(provisionDiv);
+                const secSpan = document.createElement('span');
+                secSpan.className = 'section-number';
+                secSpan.textContent = item.sec || '';
+
+                const textSpan = document.createElement('span');
+                textSpan.className = 'provision-text';
+                textSpan.textContent = item.text || '';
+
+                provisionDiv.appendChild(secSpan);
+                provisionDiv.appendChild(textSpan);
+                orderBlock.appendChild(provisionDiv);
+              });
+            }
+
+            // Add signature
+            if (order.signature) {
+              const signature = document.createElement('div');
+              signature.className = 'order-signature';
+              signature.textContent = order.signature;
+              orderBlock.appendChild(signature);
+            }
+
+            const meta = document.createElement('div');
+            meta.className = 'order-meta';
+            meta.textContent = `— ${order.number} · State of Fairmont —`;
+
+            orderBlock.appendChild(meta);
+            innerWrapper.appendChild(orderBlock);
+            content.appendChild(innerWrapper);
+            card.appendChild(header);
+            card.appendChild(content);
+            grid.appendChild(card);
+
+            allCards.push(card);
+
+            // ----- Toggle on header click -----
+            header.addEventListener('click', function(e) {
+              e.stopPropagation();
+              card.classList.toggle('expanded');
             });
-          }
 
-          // Add signature
-          if (order.signature) {
-            const signature = document.createElement('div');
-            signature.className = 'order-signature';
-            signature.textContent = order.signature;
-            orderBlock.appendChild(signature);
-          }
-
-          const meta = document.createElement('div');
-          meta.className = 'order-meta';
-          meta.textContent = `— ${order.number} · State of Fairmont —`;
-
-          orderBlock.appendChild(meta);
-          innerWrapper.appendChild(orderBlock);
-          content.appendChild(innerWrapper);
-          card.appendChild(header);
-          card.appendChild(content);
-          grid.appendChild(card);
-
-          allCards.push(card);
-
-          // ----- Toggle on header click -----
-          header.addEventListener('click', function(e) {
-            e.stopPropagation();
-            card.classList.toggle('expanded');
+            // Expand first card of first administration by default
+            if (adminIndex === 0 && index === 0) {
+              card.classList.add('expanded');
+            }
           });
-
-          // Expand first card by default
-          if (index === 0) {
-            card.classList.add('expanded');
-          }
         });
 
         // Update "Expand All" button state
@@ -1014,7 +1132,7 @@
         toggleAllBtn.textContent = 'Expand All';
       });
 
-      // ===== SEARCH FUNCTIONALITY =====
+      //  SEARCH FUNCTIONALITY 
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
@@ -1150,12 +1268,52 @@
         searchInput.focus();
       });
 
+      //  SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY 
+      const mainElement = document.querySelector('main');
+
+      function animateMainIn() {
+        mainElement.style.animation = 'none';
+        void mainElement.offsetHeight;
+        mainElement.style.animation = 'slideIn 0.4s ease-out';
+        mainElement.style.animationFillMode = 'both';
+      }
+
+      document.querySelectorAll('.header-nav a, .footer-links a').forEach(link => {
+        if (link.href && link.href.startsWith(window.location.origin) && !link.href.includes('#')) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.href;
+            
+            mainElement.style.animation = 'none';
+            void mainElement.offsetHeight;
+            mainElement.style.animation = 'slideOut 0.25s ease-in';
+            mainElement.style.animationFillMode = 'both';
+            
+            setTimeout(() => {
+              window.location.href = targetUrl;
+            }, 250);
+          });
+        }
+      });
+
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+          mainElement.style.animation = 'none';
+          void mainElement.offsetHeight;
+          mainElement.style.animation = 'slideIn 0.4s ease-out';
+          mainElement.style.animationFillMode = 'both';
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          animateMainIn();
+        }, 50);
+      });
+
       // ----- Initialize -----
       populateAdminFilter();
       filterOrders();
-
-      // ----- Expose rebuild for console debugging -----
-      window.rebuildCards = filterOrders;
 
       console.log('Brought to you by State Registrar 1onzok.');
     })();
