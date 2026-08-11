@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>State of Fairmont · Official Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="icon" type="image/png" href="./favicon-black.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="./favicon-white.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./favicon-white.png">
+  
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background: #f7f7f7;
+      --text-color: #1e1e1e;
+      --link-color: #1a73e8;
+      --button-bg: #e0e0e0;
+      --button-text: #1e1e1e;
+      --header-bg: linear-gradient(135deg, #818a99, #a4a8be);
+      --card-bg: #ffffff;
+      --border-light: #d0d0d0;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 10px;
+      --footer-bg: #3d4046;
+      --footer-text: #c0d0c8;
+      --section-header-bg: #e7e7e7;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      animation: none;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--header-bg);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .header-inner {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding: 0 6rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .header-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .header-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .header-nav a:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .header-nav a.active {
+      color: #ffffff;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FULL-WIDTH SECTION HEADER ===== */
+    .section-header-full {
+      background: var(--section-header-bg);
+      padding: 3rem 1.5rem 3rem;
+      width: 100%;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-bottom: 2px solid #c0c4c8;
+    }
+
+    .section-header-full .section-header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 6rem;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.7;
+      font-weight: 400;
+      margin-top: 0.2rem;
+    }
+
+    .sub-info {
+      opacity: 0.85;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .sub-info .description-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 6rem;
+      width: 100%;
+      flex: 1;
+      padding-top: 2rem;
+    }
+
+    section {
+      margin-bottom: 2.8rem;
+    }
+
+    /* ===== HOME PAGE CARDS ===== */
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .home-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+      padding: 2rem 1.8rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .home-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .home-card .card-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .home-card .card-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .home-card .card-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      background: var(--link-color);
+      color: #fff;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .home-card .card-description {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .home-card .card-meta {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 0.3rem;
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.8rem;
+    }
+
+    .home-card .card-arrow {
+      align-self: flex-end;
+      font-size: 1.2rem;
+      color: var(--link-color);
+      opacity: 0.5;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .home-card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0 6rem;
+    }
+
+    .footer-brand {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-sub {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: -0.2rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 0.2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .footer-links a {
+      color: var(--footer-text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.2rem;
+    }
+
+    /* ===== PAGE TRANSITIONS - MAIN SECTION ONLY ===== */
+    main {
+      animation: slideIn 0.4s ease-out;
+      animation-fill-mode: both;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .header-left h1 { font-size: 1rem; }
+      .header-logo { width: 36px; height: 36px; }
+      .section-title { font-size: 1.8rem; }
+      .section-subtitle { font-size: 1rem; }
+
+      .home-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .home-card {
+        padding: 1.5rem;
+      }
+
+      .header-nav {
+        gap: 0.8rem;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 0.3rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .header-nav a {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+      }
+
+      .section-header-full {
+        padding: 2rem 1rem;
+      }
+      .section-header-full .section-header-inner {
+        padding: 0 0.5rem;
+      }
+      main {
+        padding: 0 0.5rem;
+        padding-top: 1rem;
+      }
+
+      footer {
+        padding: 2rem 1rem;
+      }
+      .footer-inner {
+        padding: 0 0.5rem;
+      }
+      .footer-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-inner {
+        padding: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="https://i.imgur.com/7F8DK86.png" alt="Fairmont Icon" class="header-logo" />
+        <h1>State of Fairmont</h1>
+      </div>
+      
+      <!-- ===== NAVIGATION ===== -->
+      <nav class="header-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="state-code.html">State Code</a>
+        <a href="executive-orders.html">Executive Orders</a>
+      </nav>
+      
+      <div class="header-actions">
+        <!-- No search on home page, just a simple placeholder -->
+        <span style="font-size: 0.85rem; opacity: 0.7;">Official Portal</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
+  <div class="section-header-full">
+    <div class="section-header-inner">
+      <h2 class="section-title">Welcome!</h2>
+      <div class="section-subtitle">State of Fairmont Registrar's Office Portal</div>
+      <div class="sub-info">
+        <div class="description-line">
+          <span>Access the Fairmont State Code and Executive Orders below.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section>
+      <div class="home-grid">
+        <!-- State Code Card -->
+        <a href="state-code.html" class="home-card">
+          <div>
+            <span class="card-title">State Code</span>
+            <span class="card-badge">F.S.C.</span>
+          </div>
+          <div class="card-description">
+            The official codified laws and regulations of the State of Fairmont. Browse titles, subtitles, chapters, and provisions.
+          </div>
+          <div class="card-meta">Updated regularly · Maintained by the Office of the State Registrar</div>
+          <div class="card-arrow">→</div>
+        </a>
+
+        <!-- Executive Orders Card -->
+        <a href="executive-orders.html" class="home-card">
+          <div>
+            <span class="card-title">Executive Orders</span>
+            <span class="card-badge">E.O.</span>
+          </div>
+          <div class="card-description">
+            Official executive orders issued by the Governor of Fairmont. Filter by administration and search by keyword.
+          </div>
+          <div class="card-meta">Updated regularly · Maintained by the Office of the State Registrar</div>
+          <div class="card-arrow">→</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">State of Fairmont</div>
+      <div class="footer-sub">Office of the State Registrar</div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-links">
+        <a href="https://discord.gg/94cpu4YD3b" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.roblox.com/groups/815905125" target="_blank" rel="noopener noreferrer">Roblox Group</a>
+      </div>
+
+      <div class="footer-copy">The State of Fairmont is an equal opportunity employer.</div>
+    </div>
+  </footer>
+
+  <!-- ===== SMOOTH PAGE TRANSITIONS ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      const mainElement = document.querySelector('main');
+
+      function animateMainIn() {
+        mainElement.style.animation = 'none';
+        void mainElement.offsetHeight;
+        mainElement.style.animation = 'slideIn 0.4s ease-out';
+        mainElement.style.animationFillMode = 'both';
+      }
+
+      document.querySelectorAll('.header-nav a, .home-card').forEach(link => {
+        if (link.href && link.href.startsWith(window.location.origin) && !link.href.includes('#')) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.href;
+            
+            mainElement.style.animation = 'none';
+            void mainElement.offsetHeight;
+            mainElement.style.animation = 'slideOut 0.25s ease-in';
+            mainElement.style.animationFillMode = 'both';
+            
+            setTimeout(() => {
+              window.location.href = targetUrl;
+            }, 250);
+          });
+        }
+      });
+
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+          mainElement.style.animation = 'none';
+          void mainElement.offsetHeight;
+          mainElement.style.animation = 'slideIn 0.4s ease-out';
+          mainElement.style.animationFillMode = 'both';
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          animateMainIn();
+        }, 50);
+      });
+    })();
+  </script>
+
+</body>
+</html>
