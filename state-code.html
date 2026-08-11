@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="./favicon-white.png">
   
   <style>
-    /* ===== RESET & BASE ===== */
+    /*  RESET & BASE  */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -58,7 +58,7 @@
       animation: none;
     }
 
-    /* ===== HEADER ===== */
+    /*  HEADER  */
     header {
       display: flex;
       align-items: center;
@@ -102,7 +102,7 @@
       margin: 0;
     }
 
-    /* ===== NAVIGATION ===== */
+    /*  NAVIGATION  */
     .header-nav {
       display: flex;
       gap: 1.5rem;
@@ -153,7 +153,7 @@
       background: rgba(255,255,255,0.25);
     }
 
-    /* ===== SEARCH BAR ===== */
+    /*  SEARCH BAR  */
     .search-container {
       display: flex;
       align-items: center;
@@ -240,7 +240,7 @@
       margin-left: 0.3rem;
     }
 
-    /* ===== FULL-WIDTH SECTION HEADER ===== */
+    /*  FULL-WIDTH SECTION HEADER  */
     .section-header-full {
       background: var(--section-header-bg);
       padding: 1.5rem 1.5rem 3rem;
@@ -308,7 +308,7 @@
       display: inline-block;
     }
 
-    /* ===== MAIN ===== */
+    /*  MAIN  */
     main {
       max-width: 1300px;
       margin: 0 auto;
@@ -322,7 +322,7 @@
       margin-bottom: 2.8rem;
     }
 
-    /* ===== TITLE CARDS ===== */
+    /*  TITLE CARDS  */
     .title-grid {
       display: flex;
       flex-direction: column;
@@ -369,12 +369,12 @@
     }
 
     .badge {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.8rem;
+      border-radius: 6px;
       background: var(--link-color);
       color: #fff;
-      padding: 0.1rem 0.7rem;
-      border-radius: 30px;
-      font-weight: 500;
       letter-spacing: 0.3px;
       opacity: 0.85;
     }
@@ -391,7 +391,7 @@
       transform: rotate(180deg);
     }
 
-    /* ===== COLLAPSIBLE CONTENT ===== */
+    /*  COLLAPSIBLE CONTENT  */
     .title-content {
       max-height: 0;
       overflow: hidden;
@@ -419,7 +419,7 @@
       transform: translateY(0);
     }
 
-    /* ===== STATE CODE BLOCK ===== */
+    /*  STATE CODE BLOCK  */
     .state-code-block {
       font-family: 'Poppins', sans-serif;
       background: var(--code-bg);
@@ -471,6 +471,7 @@
       padding-left: 0.5rem;
     }
 
+    /*  PROVISION LAYOUT  */
     .provision {
       display: flex;
       align-items: flex-start;
@@ -525,17 +526,18 @@
       margin-top: 0;
     }
 
+    /*  BADGES  */
     .status-badge {
       display: inline-block;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      padding: 0.05rem 0.6rem;
-      border-radius: 30px;
+      padding: 0.15rem 0.8rem;
+      border-radius: 6px;
       margin-left: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       vertical-align: middle;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .status-active {
@@ -558,6 +560,94 @@
       color: #ebebeb;
     }
 
+    .badge-separator {
+      display: inline-block;
+      color: var(--text-color);
+      font-weight: 100;
+      font-size: 1.3rem;
+      margin: 0 0.5rem;
+      vertical-align: middle;
+      line-height: 1.6;
+      opacity: .7;
+    }
+
+    .sentence-badge {
+      font-size: 0.7rem;
+      opacity: 1;
+      font-weight: 400;
+      background: rgba(0,0,0,0.05);
+      padding: 0.1rem 0.6rem;
+      border-radius: 6px;
+      outline: 1.5px solid #5f5f5f;
+    }
+
+    .crime-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.15rem 0.8rem;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+
+    .crime-felony {
+      background: #b71c1c;
+      color: #ebebeb;
+    }
+
+    .crime-misdemeanor {
+      background: #e65100;
+      color: #ebebeb;
+    }
+
+    .crime-infraction {
+      background: #f9a825;
+      color: #1e1e1e;
+    }
+
+    /*  SUBSECTIONS - INDENTED WITH VERTICAL LINE  */
+    .provision .subsection-container {
+      margin-top: 0.3rem;
+      margin-bottom: 0.2rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid var(--separator-color);
+      margin-left: 0.2rem;
+      padding-top: 0.1rem;
+      padding-bottom: 0.1rem;
+    }
+
+    .provision .subsection-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0rem;
+      margin-bottom: 0.1rem;
+      padding: 0rem 0.3rem;
+      border-radius: 3px;
+      transition: background 0.15s;
+    }
+
+    .provision .subsection-item:hover {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .provision .sub-number {
+      font-weight: 500;
+      color: var(--text-color);
+      opacity: 0.8;
+      min-width: 2.2rem;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+
+    .provision .sub-text {
+      display: inline;
+      font-size: 0.9rem;
+      color: var(--text-color);
+    }
+
+    /*  INACTIVE PROVISION  */
     .provision.inactive .provision-title,
     .provision.inactive .provision-text,
     .provision.inactive .subsection-item .sub-text {
@@ -574,35 +664,7 @@
       opacity: 1;
     }
 
-    .subsection-container {
-      margin-top: 0.1rem;
-      padding-left: 1.5rem;
-      border-left: 3px solid var(--separator-color);
-      padding-top: 0.1rem;
-      margin-left: 0.5rem;
-    }
-
-    .subsection-item {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .subsection-item .sub-number {
-      font-weight: 500;
-      color: var(--text-color);
-      opacity: 0.8;
-      min-width: 2rem;
-      flex-shrink: 0;
-      font-size: 0.85rem;
-    }
-
-    .subsection-item .sub-text {
-      display: inline;
-      font-size: 0.9rem;
-    }
-
+    /*  CODE META  */
     .code-meta {
       display: flex;
       justify-content: flex-end;
@@ -614,7 +676,7 @@
       letter-spacing: 0.3px;
     }
 
-    /* ===== SEARCH HIGHLIGHT ===== */
+    /*  SEARCH HIGHLIGHT  */
     .highlight {
       background-color: var(--highlight-bg);
       color: var(--highlight-text);
@@ -623,7 +685,7 @@
       font-weight: 600;
     }
 
-    /* ===== FOOTER ===== */
+    /*  FOOTER  */
     footer {
       background: var(--footer-bg);
       color: var(--footer-text);
@@ -690,7 +752,7 @@
       margin-top: 0.2rem;
     }
 
-    /* ===== PAGE TRANSITIONS - MAIN SECTION ONLY ===== */
+    /*  PAGE TRANSITIONS - MAIN SECTION ONLY  */
     main {
       animation: slideIn 0.4s ease-out;
       animation-fill-mode: both;
@@ -718,7 +780,7 @@
       }
     }
 
-    /* ===== RESPONSIVE ===== */
+    /*  RESPONSIVE  */
     @media (max-width: 700px) {
       .header-left h1 { font-size: 1rem; }
       .header-logo { width: 36px; height: 36px; }
@@ -737,7 +799,7 @@
       .provision .section-number {
         min-width: auto;
       }
-      .subsection-container {
+      .provision .subsection-container {
         padding-left: 0.5rem;
         margin-left: 0.3rem;
       }
@@ -795,7 +857,7 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!--  HEADER  -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -803,7 +865,7 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!-- ===== NAVIGATION ===== -->
+      <!--  NAVIGATION  -->
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="state-code.html" class="active">State Code</a>
@@ -821,7 +883,7 @@
     </div>
   </header>
 
-  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
+  <!--  FULL-WIDTH SECTION HEADER  -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Fairmont State Code</h2>
@@ -842,7 +904,7 @@
     </div>
   </div>
 
-  <!-- ===== MAIN ===== -->
+  <!--  MAIN  -->
   <main>
     <section>
       <div class="title-grid" id="titleGrid">
@@ -851,7 +913,7 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!--  FOOTER  -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -868,10 +930,10 @@
     </div>
   </footer>
 
-  <!-- ===== PROVISIONS DATA (external) ===== -->
+  <!--  PROVISIONS DATA (external)  -->
   <script src="provisions.js"></script>
 
-  <!-- ===== MAIN APPLICATION ===== -->
+  <!--  MAIN APPLICATION  -->
   <script>
     (function() {
       'use strict';
@@ -930,7 +992,7 @@
         ];
       }
 
-      // ===== RENDER FUNCTION =====
+      //  RENDER FUNCTION 
       function renderCards() {
         grid.innerHTML = '';
         allCards = [];
@@ -1040,6 +1102,7 @@
                       const titleWrapper = document.createElement('span');
                       titleWrapper.className = 'provision-title-wrapper';
 
+                      // Title
                       if (provision.title && provision.title.trim() !== '') {
                         const titleSpan = document.createElement('span');
                         titleSpan.className = 'provision-title';
@@ -1047,22 +1110,60 @@
                         titleWrapper.appendChild(titleSpan);
                       }
 
+                      // Build badge group with separators
+                      let hasBadges = false;
+
+                      // Status badge
                       if (provision.status) {
                         const statusSpan = document.createElement('span');
                         statusSpan.className = `status-badge status-${provision.status.toLowerCase()}`;
                         statusSpan.textContent = provision.status;
                         titleWrapper.appendChild(statusSpan);
+                        hasBadges = true;
+                      }
+
+                      // Crime type badge (optional)
+                      if (provision.crimeType) {
+                        if (hasBadges) {
+                          const sep = document.createElement('span');
+                          sep.className = 'badge-separator';
+                          sep.textContent = '|';
+                          titleWrapper.appendChild(sep);
+                        }
+                        
+                        const crimeSpan = document.createElement('span');
+                        crimeSpan.className = `crime-badge crime-${provision.crimeType.toLowerCase()}`;
+                        crimeSpan.textContent = provision.crimeType;
+                        titleWrapper.appendChild(crimeSpan);
+                        hasBadges = true;
+                      }
+
+                      // Sentence badge (optional)
+                      if (provision.sentence) {
+                        if (hasBadges) {
+                          const sep = document.createElement('span');
+                          sep.className = 'badge-separator';
+                          sep.textContent = '|';
+                          titleWrapper.appendChild(sep);
+                        }
+                        
+                        const sentenceSpan = document.createElement('span');
+                        sentenceSpan.className = `sentence-badge`;
+                        sentenceSpan.textContent = provision.sentence;
+                        titleWrapper.appendChild(sentenceSpan);
                       }
 
                       if (titleWrapper.hasChildNodes()) {
                         contentWrapper.appendChild(titleWrapper);
                       }
 
+                      // Text
                       const textSpan = document.createElement('span');
                       textSpan.className = 'provision-text';
                       textSpan.textContent = provision.text || '';
                       contentWrapper.appendChild(textSpan);
 
+                      // Subsections (with left border and indent)
                       if (provision.subsections && Array.isArray(provision.subsections) && provision.subsections.length > 0) {
                         const subContainer = document.createElement('div');
                         subContainer.className = 'subsection-container';
@@ -1149,7 +1250,7 @@
 
       renderCards();
 
-      // ===== SEARCH FUNCTIONALITY =====
+      //  SEARCH FUNCTIONALITY 
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
@@ -1213,7 +1314,10 @@
                   node.parentElement.closest('.subtitle-title') ||
                   node.parentElement.closest('.chapter-title') ||
                   node.parentElement.closest('.sub-number') ||
-                  node.parentElement.closest('.status-badge')) {
+                  node.parentElement.closest('.status-badge') ||
+                  node.parentElement.closest('.sentence-badge') ||
+                  node.parentElement.closest('.crime-badge') ||
+                  node.parentElement.closest('.badge-separator')) {
                 return NodeFilter.FILTER_REJECT;
               }
               return NodeFilter.FILTER_ACCEPT;
@@ -1285,7 +1389,7 @@
         searchInput.focus();
       });
 
-      // ===== SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY =====
+      //  SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY 
       const mainElement = document.querySelector('main');
 
       function animateMainIn() {

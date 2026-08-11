@@ -15,14 +15,18 @@ const TITLES_DATA = [
                 title: 'Unauthorized distribution of classified information', 
                 text: 'Any person who knowingly and willfully distributes, or otherwise makes available to an unauthorized person, or uses in any manner prejudicial to the safety or interest of the State or for the benefit of any foreign government any classified or military information shall be guilty of a felony.',
                 subsections: [],
-                status: 'ACTIVE'
+                status: 'ACTIVE',
+                crimeType: 'FELONY',
+                sentence: 'Sentence: 30 Minutes'
               },
               { 
                 sec: '1 F.S.C. § 1102', 
                 title: 'Espionage', 
                 text: 'Any person who distributes, or attempt to distribute, classified information to foreign governments, with intent or reason to believe that it is to be used to the injury of the State of Mayflower or advantage of a foreign government shall be guilty of a felony.',
                 subsections: [],
-                status: 'INACTIVE'
+                status: 'INACTIVE',
+                crimeType: 'FELONY',
+                sentence: 'Sentence: 60 Minutes'
               },
             ],
           },
