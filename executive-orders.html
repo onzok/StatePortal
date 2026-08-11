@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="./favicon-white.png">
   
   <style>
-    /*  RESET & BASE  */
+    /* ===== RESET & BASE ===== */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -58,7 +58,7 @@
       animation: none;
     }
 
-    /*  HEADER  */
+    /* ===== HEADER ===== */
     header {
       display: flex;
       align-items: center;
@@ -102,7 +102,7 @@
       margin: 0;
     }
 
-    /*  NAVIGATION  */
+    /* ===== NAVIGATION ===== */
     .header-nav {
       display: flex;
       gap: 1.5rem;
@@ -153,7 +153,7 @@
       background: rgba(255,255,255,0.25);
     }
 
-    /*  SEARCH BAR  */
+    /* ===== SEARCH BAR ===== */
     .search-container {
       display: flex;
       align-items: center;
@@ -240,7 +240,7 @@
       margin-left: 0.3rem;
     }
 
-    /*  FULL-WIDTH SECTION HEADER  */
+    /* ===== FULL-WIDTH SECTION HEADER ===== */
     .section-header-full {
       background: var(--section-header-bg);
       padding: 1.5rem 1.5rem 2rem;
@@ -308,7 +308,7 @@
       display: inline-block;
     }
 
-    /*  SORTING CONTROLS  */
+    /* ===== SORTING CONTROLS ===== */
     .sorting-controls {
       display: flex;
       flex-wrap: wrap;
@@ -358,7 +358,7 @@
       margin-left: 0.5rem;
     }
 
-    /*  ADMINISTRATION DIVIDER  */
+    /* ===== ADMINISTRATION DIVIDER ===== */
     .admin-divider {
       display: flex;
       align-items: center;
@@ -398,7 +398,7 @@
       font-weight: 400;
     }
 
-    /*  MAIN  */
+    /* ===== MAIN ===== */
     main {
       max-width: 1300px;
       margin: 0 auto;
@@ -412,7 +412,7 @@
       margin-bottom: 2.8rem;
     }
 
-    /*  EXECUTIVE ORDER CARDS  */
+    /* ===== EXECUTIVE ORDER CARDS ===== */
     .order-grid {
       display: flex;
       flex-direction: column;
@@ -498,7 +498,7 @@
       transform: rotate(180deg);
     }
 
-    /*  COLLAPSIBLE CONTENT  */
+    /* ===== COLLAPSIBLE CONTENT ===== */
     .order-content {
       max-height: 0;
       overflow: hidden;
@@ -526,7 +526,7 @@
       transform: translateY(0);
     }
 
-    /*  EXECUTIVE ORDER CONTENT - TWO COLUMN LAYOUT  */
+    /* ===== EXECUTIVE ORDER CONTENT - TWO COLUMN LAYOUT ===== */
     .order-block {
       font-family: 'Poppins', sans-serif;
       background: var(--code-bg);
@@ -591,7 +591,7 @@
       opacity: 0.8;
     }
 
-    /*  SEARCH HIGHLIGHT  */
+    /* ===== SEARCH HIGHLIGHT ===== */
     .highlight {
       background-color: var(--highlight-bg);
       color: var(--highlight-text);
@@ -600,7 +600,7 @@
       font-weight: 600;
     }
 
-    /*  FOOTER  */
+    /* ===== FOOTER ===== */
     footer {
       background: var(--footer-bg);
       color: var(--footer-text);
@@ -667,7 +667,7 @@
       margin-top: 0.2rem;
     }
 
-    /*  PAGE TRANSITIONS - MAIN SECTION ONLY  */
+    /* ===== PAGE TRANSITIONS - MAIN SECTION ONLY ===== */
     main {
       animation: slideIn 0.4s ease-out;
       animation-fill-mode: both;
@@ -695,7 +695,7 @@
       }
     }
 
-    /*  RESPONSIVE  */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 700px) {
       .header-left h1 { font-size: 1rem; }
       .header-logo { width: 36px; height: 36px; }
@@ -777,7 +777,7 @@
 </head>
 <body>
 
-  <!--  HEADER  -->
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -785,7 +785,7 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!--  NAVIGATION  -->
+      <!-- ===== NAVIGATION ===== -->
       <nav class="header-nav">
         <a href="state-code.html">State Code</a>
         <a href="executive-orders.html" class="active">Executive Orders</a>
@@ -802,7 +802,7 @@
     </div>
   </header>
 
-  <!--  FULL-WIDTH SECTION HEADER  -->
+  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Executive Orders</h2>
@@ -823,10 +823,10 @@
     </div>
   </div>
 
-  <!--  MAIN  -->
+  <!-- ===== MAIN ===== -->
   <main>
     <section>
-      <!--  SORTING CONTROLS  -->
+      <!-- ===== SORTING CONTROLS ===== -->
       <div class="sorting-controls">
         <label for="administrationFilter">Filter by Administration:</label>
         <select id="administrationFilter">
@@ -841,7 +841,7 @@
     </section>
   </main>
 
-  <!--  FOOTER  -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -858,10 +858,10 @@
     </div>
   </footer>
 
-  <!--  EXECUTIVE ORDERS DATA (external)  -->
+  <!-- ===== EXECUTIVE ORDERS DATA (external) ===== -->
   <script src="executive-orders-data.js"></script>
 
-  <!--  MAIN APPLICATION  -->
+  <!-- ===== MAIN APPLICATION ===== -->
   <script>
     (function() {
       'use strict';
@@ -939,7 +939,7 @@
         renderFilteredCards();
       }
 
-      //  RENDER FUNCTION WITH ADMIN DIVIDERS 
+      // ===== RENDER FUNCTION WITH ADMIN DIVIDERS =====
       function renderFilteredCards() {
         grid.innerHTML = '';
         allCards = [];
@@ -1132,7 +1132,7 @@
         toggleAllBtn.textContent = 'Expand All';
       });
 
-      //  SEARCH FUNCTIONALITY 
+      // ===== SEARCH FUNCTIONALITY =====
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
@@ -1268,7 +1268,7 @@
         searchInput.focus();
       });
 
-      //  SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY 
+      // ===== SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY =====
       const mainElement = document.querySelector('main');
 
       function animateMainIn() {
@@ -1314,6 +1314,9 @@
       // ----- Initialize -----
       populateAdminFilter();
       filterOrders();
+
+      // ----- Expose rebuild for console debugging -----
+      window.rebuildCards = filterOrders;
 
       console.log('Brought to you by State Registrar 1onzok.');
     })();
