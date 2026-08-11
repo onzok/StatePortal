@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mayflower State Code</title>
+
+  <meta property="og:title" content="Mayflower State Code"/>
+  <meta property="og:description" content="View M.S.C. Online"/>
+  <meta property="og:image" content="https://i.imgur.com/smgiw56.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=4Ke47z493htMCsbsRlNsA_1T8uq1p-7OQosyCg16VsrTviEKQGcwvsyj4q-ct5U2xrceN-KL_8uwVcwUO9dp5u08e2iCCv5XYAYeMfadwxM" charset="UTF-8"></script><style>
+    :root {
+      --background: #f7f7f7;
+      --text-color: #333;
+      --link-color: #1a73e8;
+      --button-bg: #e0e0e0;
+      --button-text: #333;
+      --header-bg: linear-gradient(135deg, #17465e, #1c5a77);
+    }
+
+    .dark-mode {
+      --background: #121212;
+      --text-color: #f0f0f0;
+      --link-color: #8ab4f8;
+      --button-bg: #333;
+      --button-text: #f0f0f0;
+      --header-bg: linear-gradient(135deg, #333, #555);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: var(--header-bg);
+      color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .toggle-button {
+      padding: 0.5em 1em;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-button:hover {
+      background-color: #d0d0d0;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .file-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .dark-mode .file-list {
+      background-color: #1e1e1e;
+      border-color: #555;
+    }
+
+    .file-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .dark-mode .file-list li {
+      border-color: #555;
+    }
+
+    .file-list li:hover {
+      background-color: #eee;
+    }
+
+    .dark-mode .file-list li:hover {
+      background-color: #333;
+    }
+
+    .file-title {
+      flex-grow: 1;
+    }
+
+    .new-tab-link {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      color: var(--link-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .new-tab-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .new-tab-link:hover svg {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .iframe-container {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .dark-mode .iframe-container {
+      background-color: #1e1e1e;
+      border-color: #555;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 1000px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="https://i.imgur.com/lMFLFOE.png" alt="Mayflower Icon" class="header-logo" />
+      <h1>State of Mayflower</h1>
+    </div>
+    <button class="toggle-button" id="darkModeToggle">Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Mayflower State Code Titles</h2>
+      <p>
+        Find the M.S.C. Titles below. For the official laws and regulations, refer
+        to the
+        <a
+          href="https://docs.google.com/spreadsheets/d/19wm3zyZKKYvWYyeNFsyn9tLkdMW9XfRw9NSaUoUNWGI/edit?gid=1409593885#gid=1409593885"
+          target="_blank"
+        >
+          M.S.C. Google Sheet
+        </a>.
+      </p>
+      <ul class="file-list" id="titles"></ul>
+    </section>
+
+    <section>
+      <h2>File Preview</h2>
+      <div class="iframe-container">
+        <iframe id="previewFrame" src=""></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    const repoOwner = 'kennethtube';
+    const repoName = 'mayflowerstatecode';
+
+    async function fetchFileList(folderPath, listId) {
+      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error(`Failed to fetch file list from ${folderPath}`);
+        const files = await response.json();
+        updateFileList(files, listId, folderPath);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function updateFileList(files, listId, folderPath) {
+      const fileList = document.getElementById(listId);
+      fileList.innerHTML = '';
+
+      files.sort((a, b) => {
+        const parseTitle = (title) => {
+          const match = title.match(/^Title (\d+)([A-Z]?)_/);
+          if (!match) return [Infinity, ''];
+          const [, num, letter] = match;
+          return [parseInt(num, 10), letter];
+        };
+        const [numA, letterA] = parseTitle(a.name);
+        const [numB, letterB] = parseTitle(b.name);
+        if (numA === numB) return letterA.localeCompare(letterB);
+        return numA - numB;
+      });
+
+      files.forEach(file => {
+        let displayName = file.name.replace(/_/g, ' ').replace(/\.html$/i, '');
+        const fileUrl = `https://${repoOwner}.github.io/${repoName}/${folderPath}/${encodeURIComponent(file.name)}`;
+
+        const listItem = document.createElement('li');
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = displayName;
+        titleSpan.className = 'file-title';
+        titleSpan.addEventListener('click', () => {
+          document.getElementById('previewFrame').src = fileUrl;
+        });
+
+        const newTabLink = document.createElement('a');
+        newTabLink.className = 'new-tab-link';
+        newTabLink.href = fileUrl;
+        newTabLink.target = '_blank';
+        newTabLink.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M6 2a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0V4.41l-9.29 9.3a1 1 0 0 1-1.42-1.42L10.59 3H7a1 1 0 0 1-1-1z"/>
+          </svg>
+        `;
+
+        listItem.appendChild(titleSpan);
+        listItem.appendChild(newTabLink);
+        fileList.appendChild(listItem);
+      });
+    }
+
+    fetchFileList('titles', 'titles');
+  </script>
+</body>
+</html>
