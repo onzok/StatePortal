@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fairmont Executive Orders</title>
 
-  <meta property="og:title" content="Fairmont Executive Orders"/>
-  <meta property="og:description" content="View Executive Orders of the State of Fairmont"/>
-  <meta property="og:image" content="https://i.imgur.com/smgiw56.png"/>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
+  <link rel="icon" type="image/png" href="./favicon-black.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="./favicon-white.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./favicon-white.png">
+  
   <style>
     /* ===== RESET & BASE ===== */
     * {
@@ -27,22 +27,22 @@
       --link-color: #1a73e8;
       --button-bg: #e0e0e0;
       --button-text: #1e1e1e;
-      --header-bg: linear-gradient(135deg, #1a4a3e, #2a6b5a);
+      --header-bg: linear-gradient(135deg, #818a99, #a4a8be);
       --card-bg: #ffffff;
       --border-light: #d0d0d0;
       --code-bg: #f0f4f8;
       --code-border: #b0c4d9;
       --shadow: 0 4px 12px rgba(0,0,0,0.06);
       --radius: 10px;
-      --footer-bg: #1a2a24;
+      --footer-bg: #3d4046;
       --footer-text: #c0d0c8;
-      --search-bg: #ffffff;
+      --search-bg: #f7f7f7;
       --search-border: #d0d0d0;
       --search-text: #1e1e1e;
       --highlight-bg: #ffeb3b;
       --highlight-text: #1e1e1e;
-      --separator-color: #b0c4d9;
-      --section-header-bg: #d3d7da;
+      --separator-color: #818181;
+      --section-header-bg: #e7e7e7;
     }
 
     html, body {
@@ -78,7 +78,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
-      padding: 0 1.2rem;
+      padding: 0 6rem;
     }
 
     .header-left {
@@ -101,28 +101,29 @@
       margin: 0;
     }
 
-    .main-nav {
+    /* ===== NAVIGATION ===== */
+    .header-nav {
       display: flex;
       gap: 1.5rem;
       align-items: center;
     }
 
-    .main-nav a {
+    .header-nav a {
       color: rgba(255,255,255,0.8);
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 500;
-      transition: color 0.2s, background 0.2s;
       padding: 0.3rem 0.7rem;
       border-radius: 4px;
+      transition: all 0.2s;
     }
 
-    .main-nav a:hover {
+    .header-nav a:hover {
       color: #ffffff;
       background: rgba(255,255,255,0.1);
     }
 
-    .main-nav a.active {
+    .header-nav a.active {
       color: #ffffff;
       background: rgba(255,255,255,0.15);
     }
@@ -241,7 +242,7 @@
     /* ===== FULL-WIDTH SECTION HEADER ===== */
     .section-header-full {
       background: var(--section-header-bg);
-      padding: 3rem 1.5rem;
+      padding: 1.5rem 1.5rem 2rem;
       width: 100%;
       border: none;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -251,7 +252,7 @@
     .section-header-full .section-header-inner {
       max-width: 1300px;
       margin: 0 auto;
-      padding: 0 1.2rem;
+      padding: 0 6rem;
     }
 
     .section-title {
@@ -306,14 +307,64 @@
       display: inline-block;
     }
 
+    /* ===== SORTING CONTROLS ===== */
+    .sorting-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.5rem 0 1rem 0;
+      padding: 0.5rem 0;
+    }
+
+    .sorting-controls label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.8;
+    }
+
+    .sorting-controls select {
+      padding: 0.4rem 1.5rem 0.4rem 0.8rem;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.8rem center;
+      background-size: 0.8rem;
+      min-width: 200px;
+    }
+
+    .sorting-controls select:hover {
+      border-color: var(--link-color);
+    }
+
+    .sorting-controls select:focus {
+      outline: none;
+      border-color: var(--link-color);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    }
+
+    .sorting-controls .sort-count {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-left: 0.5rem;
+    }
+
     /* ===== MAIN ===== */
     main {
       max-width: 1300px;
       margin: 0 auto;
-      padding: 0 1.2rem;
+      padding: 0 6rem;
       width: 100%;
       flex: 1;
-      padding-top: 1.5rem;
+      padding-top: 0.5rem;
     }
 
     section {
@@ -384,6 +435,16 @@
       margin-left: 0.5rem;
     }
 
+    .order-admin {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      font-weight: 400;
+      background: rgba(0,0,0,0.05);
+      padding: 0.1rem 0.6rem;
+      border-radius: 12px;
+      margin-left: 0.3rem;
+    }
+
     .expand-icon {
       font-size: 1.5rem;
       line-height: 1;
@@ -424,7 +485,7 @@
       transform: translateY(0);
     }
 
-    /* ===== EXECUTIVE ORDER CONTENT ===== */
+    /* ===== EXECUTIVE ORDER CONTENT - TWO COLUMN LAYOUT ===== */
     .order-block {
       font-family: 'Poppins', sans-serif;
       background: var(--code-bg);
@@ -438,20 +499,36 @@
       transition: background-color 0.3s, border-color 0.3s;
     }
 
-    .order-section {
-      margin-bottom: 0.8rem;
+    /* Two-column provision layout - same as State Code */
+    .order-provision {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.15s;
+      padding-left: 1rem;
     }
 
-    .order-section .section-number {
-      display: inline-block;
+    .order-provision:hover {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .order-provision .section-number {
       font-weight: 600;
       color: #8B4513;
-      min-width: 5rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      min-width: 3.5rem;
+      flex-shrink: 0;
+      padding-top: 0.05rem;
     }
 
-    .order-section .section-text {
-      display: inline;
+    .order-provision .provision-text {
+      flex: 1;
+      min-width: 0;
+      font-size: 0.9rem;
+      color: var(--text-color);
     }
 
     .order-meta {
@@ -501,7 +578,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
-      padding: 0 1.2rem;
+      padding: 0 6rem;
     }
 
     .footer-brand {
@@ -561,15 +638,60 @@
       .search-container { min-width: 140px; max-width: 100%; }
       .search-container input { font-size: 0.8rem; }
       .search-container button { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
-      .section-header-full { padding: 2rem 1rem; }
-      .section-header-full .section-header-inner { padding: 0 0.5rem; }
-      main { padding-top: 1rem; }
-      footer { padding: 2rem 1rem; }
-      .footer-inner { padding: 0 0.5rem; }
-      .footer-links { gap: 1rem; flex-direction: column; align-items: flex-start; }
-      .header-inner { padding: 0 0.5rem; }
-      .main-nav { gap: 0.8rem; }
-      .main-nav a { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
+      .sorting-controls select { min-width: 150px; }
+
+      /* Two-column becomes stacked on mobile */
+      .order-provision {
+        flex-direction: column;
+        gap: 0.1rem;
+        padding-left: 0.5rem;
+      }
+      .order-provision .section-number {
+        min-width: auto;
+      }
+
+      .header-nav {
+        gap: 0.8rem;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 0.3rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .header-nav a {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+      }
+
+      .section-header-full {
+        padding: 2rem 1rem;
+      }
+      .section-header-full .section-header-inner {
+        padding: 0 0.5rem;
+      }
+      main {
+        padding: 0 0.5rem;
+        padding-top: 0.5rem;
+      }
+      .sorting-controls {
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+      }
+
+      footer {
+        padding: 2rem 1rem;
+      }
+      .footer-inner {
+        padding: 0 0.5rem;
+      }
+      .footer-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-inner {
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
@@ -579,18 +701,19 @@
   <header>
     <div class="header-inner">
       <div class="header-left">
-        <img src="https://i.imgur.com/lMFLFOE.png" alt="Fairmont Icon" class="header-logo" />
+        <img src="https://i.imgur.com/7F8DK86.png" alt="Fairmont Icon" class="header-logo" />
         <h1>State of Fairmont</h1>
       </div>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="state-code.html">State Code</a>
+      
+      <!-- ===== NAVIGATION ===== -->
+      <nav class="header-nav">
+        <a href="index.html">State Code</a>
         <a href="executive-orders.html" class="active">Executive Orders</a>
-        <a href="about.html">About</a>
       </nav>
+      
       <div class="header-actions">
         <div class="search-container">
-          <input type="text" id="searchInput" placeholder="Search orders..." />
+          <input type="text" id="searchInput" placeholder="Search Executive Orders..." />
           <button id="searchBtn">Search</button>
           <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
         </div>
@@ -605,11 +728,11 @@
       <h2 class="section-title">Executive Orders</h2>
       <div class="sub-info">
         <div class="description-line">
-          <span>Official executive orders issued by the Governor of Fairmont.</span>
+          <span>Official executive orders issued by the Governor of Fairmont.<br><br>Maintained by the Office of the State Registrar.</span>
         </div>
         <div class="meta-line">
           <span>
-            <a href="https://docs.google.com/spreadsheets/d/19wm3zyZKKYvWYyeNFsyn9tLkdMW9XfRw9NSaUoUNWGI/edit?gid=1409593885#gid=1409593885" target="_blank">
+            <a href="https://docs.google.com/spreadsheets/d/1Cyelj7QihBfgy5ZVfgQtlC-uaDeVZLN36fsOChTRwzg/edit?usp=sharing" target="_blank">
               Executive Orders Database
             </a>
           </span>
@@ -623,6 +746,15 @@
   <!-- ===== MAIN ===== -->
   <main>
     <section>
+      <!-- ===== SORTING CONTROLS ===== -->
+      <div class="sorting-controls">
+        <label for="administrationFilter">Filter by Administration:</label>
+        <select id="administrationFilter">
+          <option value="all">All Administrations</option>
+        </select>
+        <span class="sort-count" id="sortCount"></span>
+      </div>
+
       <div class="order-grid" id="orderGrid">
         <!-- Injected by JavaScript -->
       </div>
@@ -633,75 +765,21 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
-      <div class="footer-sub">Office of the State Code</div>
+      <div class="footer-sub">Office of the State Registrar</div>
 
       <div class="footer-divider"></div>
 
       <div class="footer-links">
-        <a href="#">Discord</a>
-        <a href="#">Roblox Group</a>
-        <a href="#">Appeals Form</a>
+        <a href="https://discord.gg/94cpu4YD3b" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.roblox.com/groups/815905125" target="_blank" rel="noopener noreferrer">Roblox Group</a>
       </div>
 
-      <div class="footer-copy">© State of Fairmont — All provisions enforced.</div>
+      <div class="footer-copy">The State of Fairmont is an equal opportunity employer.</div>
     </div>
   </footer>
 
-  <!-- ===== EXECUTIVE ORDERS DATA ===== -->
-  <script>
-    // ===== EXECUTIVE ORDERS DATA =====
-    const ORDERS_DATA = [
-      {
-        number: 'EO 2024-001',
-        title: 'Emergency Management Protocols',
-        date: 'January 15, 2024',
-        color: '#fef3e8',
-        sections: [
-          { sec: '§ 1', text: 'The Governor hereby establishes the Emergency Management Council to coordinate disaster response across all municipalities.' },
-          { sec: '§ 2', text: 'All state agencies shall develop and maintain continuity of operations plans to ensure essential services during emergencies.' },
-          { sec: '§ 3', text: 'The Department of Homeland Security shall maintain a statewide emergency alert system accessible to all residents.' },
-        ],
-        signature: 'Signed by: Governor Sarah Mitchell, January 15, 2024'
-      },
-      {
-        number: 'EO 2024-002',
-        title: 'Public Records Modernization',
-        date: 'February 3, 2024',
-        color: '#e8f4f8',
-        sections: [
-          { sec: '§ 1', text: 'All state agencies shall transition to digital records management systems by December 31, 2024.' },
-          { sec: '§ 2', text: 'A centralized public records portal shall be established to provide transparent access to government documents.' },
-          { sec: '§ 3', text: 'The State Archives shall develop preservation standards for digital records.' },
-        ],
-        signature: 'Signed by: Governor Sarah Mitchell, February 3, 2024'
-      },
-      {
-        number: 'EO 2024-003',
-        title: 'Environmental Protection Initiative',
-        date: 'March 12, 2024',
-        color: '#e8f8ee',
-        sections: [
-          { sec: '§ 1', text: 'The state shall achieve net-zero greenhouse gas emissions by 2050.' },
-          { sec: '§ 2', text: 'A Green Energy Fund shall be established to support renewable energy projects in underserved communities.' },
-          { sec: '§ 3', text: 'The Department of Environmental Protection shall update water quality standards to protect all waterways.' },
-          { sec: '§ 4', text: 'State agencies shall prioritize sustainable procurement practices for all government contracts.' },
-        ],
-        signature: 'Signed by: Governor Sarah Mitchell, March 12, 2024'
-      },
-      {
-        number: 'EO 2024-004',
-        title: 'Statewide Broadband Access',
-        date: 'April 5, 2024',
-        color: '#f0f0fa',
-        sections: [
-          { sec: '§ 1', text: 'High-speed internet access is declared essential infrastructure for all residents of Fairmont.' },
-          { sec: '§ 2', text: 'The Broadband Access Fund shall allocate $50 million to expand connectivity in rural and underserved areas.' },
-          { sec: '§ 3', text: 'All new state-funded construction projects shall include broadband infrastructure planning.' },
-        ],
-        signature: 'Signed by: Governor Sarah Mitchell, April 5, 2024'
-      }
-    ];
-  </script>
+  <!-- ===== EXECUTIVE ORDERS DATA (external) ===== -->
+  <script src="executive-orders-data.js"></script>
 
   <!-- ===== MAIN APPLICATION ===== -->
   <script>
@@ -716,41 +794,88 @@
       const searchStats = document.getElementById('searchStats');
       const grid = document.getElementById('orderGrid');
       const statsBadge = document.getElementById('statsBadge');
+      const adminFilter = document.getElementById('administrationFilter');
+      const sortCount = document.getElementById('sortCount');
 
       let allExpanded = false;
       let allCards = [];
+      let currentFilter = 'all';
+      let filteredOrders = [];
 
-      // ----- Expand / Collapse All -----
-      toggleAllBtn.addEventListener('click', function() {
-        allExpanded = !allExpanded;
-        const cards = document.querySelectorAll('.order-card');
-        cards.forEach(card => {
-          if (allExpanded) {
-            card.classList.add('expanded');
-          } else {
-            card.classList.remove('expanded');
+      // ----- Get data from external executive-orders-data.js -----
+      let ordersData = [];
+      if (typeof EXECUTIVE_ORDERS_DATA !== 'undefined') {
+        ordersData = EXECUTIVE_ORDERS_DATA;
+      } else {
+        console.warn('executive-orders-data.js not found. Using fallback data.');
+        ordersData = [
+          {
+            number: 'EO 2024-001',
+            title: 'Emergency Management Protocols',
+            date: 'January 15, 2024',
+            governor: 'Sarah Mitchell',
+            administration: 'Mitchell Administration',
+            color: '#fef3e8',
+            provisions: [
+              { sec: '§ 1', text: 'This is fallback data. Please create executive-orders-data.js with your executive orders.' },
+            ],
+            signature: 'Signed by: Governor, January 15, 2024'
+          }
+        ];
+      }
+
+      // ----- Populate administration filter -----
+      function populateAdminFilter() {
+        const administrations = new Set();
+        ordersData.forEach(order => {
+          if (order.administration) {
+            administrations.add(order.administration);
           }
         });
-        this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
-      });
+        
+        adminFilter.innerHTML = '<option value="all">All Administrations</option>';
+        
+        const sortedAdmins = Array.from(administrations).sort();
+        sortedAdmins.forEach(admin => {
+          const option = document.createElement('option');
+          option.value = admin;
+          option.textContent = admin;
+          adminFilter.appendChild(option);
+        });
+      }
+
+      // ----- Filter orders by administration -----
+      function filterOrders() {
+        const filterValue = adminFilter.value;
+        currentFilter = filterValue;
+        
+        if (filterValue === 'all') {
+          filteredOrders = [...ordersData];
+        } else {
+          filteredOrders = ordersData.filter(order => order.administration === filterValue);
+        }
+        
+        sortCount.textContent = `Showing ${filteredOrders.length} of ${ordersData.length} orders`;
+        renderFilteredCards();
+      }
 
       // ===== RENDER FUNCTION =====
-      function renderCards() {
+      function renderFilteredCards() {
         grid.innerHTML = '';
         allCards = [];
 
-        // Count total sections
-        let totalSections = 0;
-        ORDERS_DATA.forEach(order => {
-          if (order.sections) {
-            totalSections += order.sections.length;
+        // Count total provisions
+        let totalProvisions = 0;
+        filteredOrders.forEach(order => {
+          if (order.provisions) {
+            totalProvisions += order.provisions.length;
           }
         });
 
-        statsBadge.textContent = `${ORDERS_DATA.length} orders · ${totalSections} provisions`;
+        statsBadge.textContent = `${filteredOrders.length} orders · ${totalProvisions} provisions`;
 
         // Build each order card
-        ORDERS_DATA.forEach((order, index) => {
+        filteredOrders.forEach((order, index) => {
           const card = document.createElement('div');
           card.className = 'order-card';
           card.dataset.title = `${order.number} - ${order.title}`;
@@ -766,6 +891,7 @@
           nameSpan.innerHTML = `
             ${order.number} — ${order.title}
             <span class="order-date">${order.date}</span>
+            <span class="order-admin">${order.administration || ''}</span>
             <span class="order-badge">Executive Order</span>
           `;
 
@@ -788,23 +914,23 @@
           orderBlock.style.backgroundColor = orderColor;
           orderBlock.style.borderLeftColor = darkenColor(orderColor, 40);
 
-          // Build sections
-          if (order.sections && order.sections.length > 0) {
-            order.sections.forEach((item) => {
-              const sectionWrapper = document.createElement('div');
-              sectionWrapper.className = 'order-section';
+          // Build provisions with two-column layout
+          if (order.provisions && order.provisions.length > 0) {
+            order.provisions.forEach((item) => {
+              const provisionDiv = document.createElement('div');
+              provisionDiv.className = 'order-provision';
 
               const secSpan = document.createElement('span');
               secSpan.className = 'section-number';
               secSpan.textContent = item.sec || '';
 
               const textSpan = document.createElement('span');
-              textSpan.className = 'section-text';
+              textSpan.className = 'provision-text';
               textSpan.textContent = item.text || '';
 
-              sectionWrapper.appendChild(secSpan);
-              sectionWrapper.appendChild(textSpan);
-              orderBlock.appendChild(sectionWrapper);
+              provisionDiv.appendChild(secSpan);
+              provisionDiv.appendChild(textSpan);
+              orderBlock.appendChild(provisionDiv);
             });
           }
 
@@ -867,7 +993,26 @@
         return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
       }
 
-      renderCards();
+      // ----- Expand / Collapse All -----
+      toggleAllBtn.addEventListener('click', function() {
+        allExpanded = !allExpanded;
+        const cards = document.querySelectorAll('.order-card');
+        cards.forEach(card => {
+          if (allExpanded) {
+            card.classList.add('expanded');
+          } else {
+            card.classList.remove('expanded');
+          }
+        });
+        this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+      });
+
+      // ----- Administration filter event listener -----
+      adminFilter.addEventListener('change', function() {
+        filterOrders();
+        allExpanded = false;
+        toggleAllBtn.textContent = 'Expand All';
+      });
 
       // ===== SEARCH FUNCTIONALITY =====
       function performSearch() {
@@ -929,9 +1074,10 @@
             acceptNode: function(node) {
               if (node.parentElement.closest('.section-number') ||
                   node.parentElement.closest('.order-badge') ||
-                  node.parentElement.closest('.section-count') ||
                   node.parentElement.closest('.order-meta') ||
-                  node.parentElement.closest('.order-signature')) {
+                  node.parentElement.closest('.order-signature') ||
+                  node.parentElement.closest('.order-date') ||
+                  node.parentElement.closest('.order-admin')) {
                 return NodeFilter.FILTER_REJECT;
               }
               return NodeFilter.FILTER_ACCEPT;
@@ -1004,7 +1150,14 @@
         searchInput.focus();
       });
 
-      console.log('Executive Orders page ready.');
+      // ----- Initialize -----
+      populateAdminFilter();
+      filterOrders();
+
+      // ----- Expose rebuild for console debugging -----
+      window.rebuildCards = filterOrders;
+
+      console.log('Brought to you by State Registrar 1onzok.');
     })();
   </script>
 

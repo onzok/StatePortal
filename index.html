@@ -667,6 +667,34 @@
       opacity: 0.7;
       margin-top: 0.2rem;
     }
+    
+    /* NAVIGATION */
+
+    .header-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    .header-nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    
+    .header-nav a:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .header-nav a.active {
+      color: #ffffff;
+      background: rgba(255,255,255,0.15);
+    }    
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 700px) {
@@ -737,6 +765,10 @@
       <div class="header-left">
         <img src="https://i.imgur.com/7F8DK86.png" alt="Fairmont Icon" class="header-logo" />
         <h1>State of Fairmont</h1>
+      </div>
+      <div class="header-nav">
+        <a href="index.html" class="active">State Code</a>
+        <a href="executive-orders.html">Executive Orders</a>
       </div>
       <div class="header-actions">
         <div class="search-container">
