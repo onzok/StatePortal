@@ -3,280 +3,973 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mayflower State Code</title>
+  <title>Fairmont State Code · Expander with Subtitles</title>
 
-  <meta property="og:title" content="Mayflower State Code"/>
-  <meta property="og:description" content="View M.S.C. Online"/>
+  <meta property="og:title" content="Fairmont State Code"/>
+  <meta property="og:description" content="View F.S.C. Online"/>
   <meta property="og:image" content="https://i.imgur.com/smgiw56.png"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=4Ke47z493htMCsbsRlNsA_1T8uq1p-7OQosyCg16VsrTviEKQGcwvsyj4q-ct5U2xrceN-KL_8uwVcwUO9dp5u08e2iCCv5XYAYeMfadwxM" charset="UTF-8"></script><style>
-    :root {
-      --background: #f7f7f7;
-      --text-color: #333;
-      --link-color: #1a73e8;
-      --button-bg: #e0e0e0;
-      --button-text: #333;
-      --header-bg: linear-gradient(135deg, #17465e, #1c5a77);
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .dark-mode {
-      --background: #121212;
-      --text-color: #f0f0f0;
-      --link-color: #8ab4f8;
-      --button-bg: #333;
-      --button-text: #f0f0f0;
-      --header-bg: linear-gradient(135deg, #333, #555);
+    :root {
+      --background: #f7f7f7;
+      --text-color: #1e1e1e;
+      --link-color: #1a73e8;
+      --button-bg: #e0e0e0;
+      --button-text: #1e1e1e;
+      --header-bg: linear-gradient(135deg, #1a4a3e, #2a6b5a);
+      --card-bg: #ffffff;
+      --border-light: #d0d0d0;
+      --code-bg: #f0f4f8;
+      --code-border: #b0c4d9;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 10px;
+      --footer-bg: #1a2a24;
+      --footer-text: #c0d0c8;
+      --search-bg: #f7f7f7;
+      --search-border: #d0d0d0;
+      --search-text: #1e1e1e;
+      --highlight-bg: #ffeb3b;
+      --highlight-text: #1e1e1e;
+      --separator-color: #b0c4d9;
+      --section-header-bg: #e7e7e7;
+    }
+
+    html, body {
+      height: 100%;
     }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: var(--background);
       color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* ===== HEADER ===== */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem;
+      padding: 0.8rem 1.5rem;
       background: var(--header-bg);
       color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
     }
 
     .header-left {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
     }
 
     .header-logo {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
     }
 
     h1 {
-      margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
+      letter-spacing: 0.3px;
+      margin: 0;
     }
 
-    .toggle-button {
-      padding: 0.5em 1em;
-      background-color: var(--button-bg);
-      color: var(--button-text);
-      border: none;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .toggle-all-btn {
+      padding: 0.4rem 1rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
       cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 40px;
+      transition: background 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .toggle-all-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--search-bg);
+      border: 1px solid var(--search-border);
+      border-radius: 40px;
+      padding: 0.2rem 0.2rem 0.2rem 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      flex: 1;
+      min-width: 180px;
+      max-width: 350px;
+    }
+
+    .search-container:focus-within {
+      border-color: var(--link-color);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--search-text);
+      outline: none;
+      min-width: 80px;
+    }
+
+    .search-container input::placeholder {
+      color: var(--search-text);
+      opacity: 0.5;
+    }
+
+    .search-container button {
+      background: var(--link-color);
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .search-container button:hover {
+      background: #1557b0;
+      transform: scale(0.97);
+    }
+
+    .search-container button:active {
+      transform: scale(0.95);
+    }
+
+    .search-clear {
+      background: transparent;
+      border: none;
+      color: var(--search-text);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0 0.3rem;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+      display: none;
+      line-height: 1;
+    }
+
+    .search-clear:hover {
+      opacity: 1;
+    }
+
+    .search-clear.visible {
+      display: block;
+    }
+
+    .search-stats {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-left: 0.3rem;
+    }
+
+    /* ===== FULL-WIDTH SECTION HEADER (outside main) ===== */
+    .section-header-full {
+      background: var(--section-header-bg); /* gray */
+      padding: 3rem 1.5rem;
+      width: 100%;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-bottom: 2px solid #c0c4c8;
+    }
+
+    .section-header-full .section-header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    .sub-info {
+      opacity: 0.85;
       font-size: 1rem;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
     }
 
-    .toggle-button:hover {
-      background-color: #d0d0d0;
+    .sub-info .description-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
     }
 
+    .sub-info .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .sub-info a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted currentColor;
+    }
+
+    .sub-info a:hover {
+      border-bottom: 2px solid;
+    }
+
+    .stats-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    /* ===== MAIN ===== */
     main {
-      max-width: 1400px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      width: 100%;
+      flex: 1;
+      padding-top: 1.5rem;
     }
 
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.8rem;
     }
 
-    .file-list {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #fff;
+    /* ===== TITLE CARDS ===== */
+    .title-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .title-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+      transition: border-color 0.2s, box-shadow 0.2s, opacity 0.3s;
       overflow: hidden;
     }
 
-    .dark-mode .file-list {
-      background-color: #1e1e1e;
-      border-color: #555;
+    .title-card.hidden {
+      display: none;
     }
 
-    .file-list li {
+    .title-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid #ccc;
+      padding: 0.9rem 1.4rem;
       cursor: pointer;
-      transition: background-color 0.3s;
+      user-select: none;
+      transition: background 0.15s;
+      gap: 1rem;
     }
 
-    .dark-mode .file-list li {
-      border-color: #555;
+    .title-card-header:hover {
+      background: rgba(0,0,0,0.02);
     }
 
-    .file-list li:hover {
-      background-color: #eee;
-    }
-
-    .dark-mode .file-list li:hover {
-      background-color: #333;
-    }
-
-    .file-title {
-      flex-grow: 1;
-    }
-
-    .new-tab-link {
-      margin-left: 1rem;
-      font-size: 0.9rem;
-      color: var(--link-color);
-      text-decoration: none;
+    .title-name {
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: -0.2px;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
 
-    .new-tab-link svg {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.2s ease;
+    .badge {
+      font-size: 0.65rem;
+      background: var(--link-color);
+      color: #fff;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      opacity: 0.85;
     }
 
-    .new-tab-link:hover svg {
-      transform: scale(1.2) rotate(5deg);
+    .expand-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.3s ease;
+      color: var(--link-color);
+      font-weight: 300;
     }
 
-    .iframe-container {
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    .title-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ===== COLLAPSIBLE CONTENT WITH FADE ANIMATION ===== */
+    .title-content {
+      max-height: 0;
       overflow: hidden;
-      background-color: #fff;
+      transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      padding: 0 1.4rem;
+      background: var(--card-bg);
+      border-top: 1px solid transparent;
     }
 
-    .dark-mode .iframe-container {
-      background-color: #1e1e1e;
-      border-color: #555;
+    .title-content-inner {
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+      padding: 0;
     }
 
-    iframe {
-      width: 100%;
-      min-height: 1000px;
-      border: none;
+    .title-card.expanded .title-content {
+      max-height: 5000px;
+      padding: 1.2rem 1.4rem 1.8rem;
+      border-top-color: var(--border-light);
+    }
+
+    .title-card.expanded .title-content-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== STATE CODE BLOCK ===== */
+    .state-code-block {
+      font-family: 'Poppins', sans-serif;
+      background: var(--code-bg);
+      border-left: 5px solid var(--code-border);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    /* ----- UNIFIED SECTION STYLE (both regular and with subsections) ----- */
+    .code-section {
+      margin-bottom: 0.8rem;
+    }
+
+    .code-section .section-number {
+      display: inline-block;
+      font-weight: 600;
+      color: var(--link-color);
+      min-width: 5rem;
+      font-size: 0.9rem;
+    }
+
+    .code-section .section-text {
+      display: inline;
+    }
+
+    /* ----- Subsection container with left border line ----- */
+    .subsection-container {
+      margin-left: 5rem;
+      padding-left: 0.8rem;
+      border-left: 3px solid var(--separator-color);
+      margin-top: 0.15rem;
+      padding-top: 0.15rem;
+    }
+
+    .subsection-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .subsection-item .sub-number {
+      font-weight: 500;
+      color: var(--text-color);
+      opacity: 0.8;
+      min-width: 2.2rem;
+      font-size: 0.85rem;
+    }
+
+    .subsection-item .sub-text {
+      display: inline;
+      font-size: 0.9rem;
+    }
+
+    /* ===== SEARCH HIGHLIGHT ===== */
+    .highlight {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-text);
+      padding: 0.1rem 0.2rem;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    .code-meta {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.7rem;
+      opacity: 0.5;
+      margin-top: 0.8rem;
+      border-top: 1px dashed var(--border-light);
+      padding-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 1.5rem 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+    }
+
+    footer .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    footer .footer-links a {
+      color: var(--footer-text);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    footer .footer-links a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    footer .footer-divider {
+      opacity: 0.3;
+      font-size: 1.2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .header-left h1 { font-size: 1rem; }
+      .header-logo { width: 36px; height: 36px; }
+      .title-name { font-size: 1rem; }
+      .title-card-header { padding: 0.7rem 1rem; flex-wrap: wrap; }
+      .state-code-block { padding: 1rem; font-size: 0.85rem; }
+      .section-title { font-size: 1.6rem; }
+      footer .footer-links { gap: 0.8rem; }
+      footer .footer-divider { display: none; }
+      .search-container { min-width: 140px; max-width: 100%; }
+      .search-container input { font-size: 0.8rem; }
+      .search-container button { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+      .subsection-container { margin-left: 0.5rem; padding-left: 0.5rem; }
+      .code-section .section-number { min-width: 4rem; }
+
+      .section-header-full {
+        padding: 2rem 1rem;
+      }
+      .section-header-full .section-header-inner {
+        padding: 0 0.5rem;
+      }
+      main {
+        padding-top: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-left">
-      <img src="https://i.imgur.com/lMFLFOE.png" alt="Mayflower Icon" class="header-logo" />
-      <h1>State of Mayflower</h1>
+      <img src="https://i.imgur.com/lMFLFOE.png" alt="Fairmont Icon" class="header-logo" />
+      <h1>State of Fairmont</h1>
     </div>
-    <button class="toggle-button" id="darkModeToggle">Toggle Dark Mode</button>
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search F.S.C..." />
+        <button id="searchBtn">Search</button>
+        <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
+      </div>
+      <button class="toggle-all-btn" id="toggleAllBtn">Expand All</button>
+    </div>
   </header>
 
+  <!-- ===== FULL-WIDTH SECTION HEADER with BIG padding ===== -->
+  <div class="section-header-full">
+    <div class="section-header-inner">
+      <h2 class="section-title">Fairmont State Code</h2>
+      <div class="sub-info">
+        <div class="description-line">
+          <span>The consolidated laws of the State of Aurelia. Select a title below to review its provisions. The Code is maintained by the Office of the State Registrar. No law or policy passed within the state legislature is active unless enterd into this code.<br><br>All provisions currently listed within the code are placeholders.</span>
+        </div>
+        <div class="meta-line">
+          <span>
+            <a href="https://docs.google.com/spreadsheets/d/19wm3zyZKKYvWYyeNFsyn9tLkdMW9XfRw9NSaUoUNWGI/edit?gid=1409593885#gid=1409593885" target="_blank">
+              F.S.C. Google Sheet
+            </a>
+          </span>
+          <span class="stats-badge" id="statsBadge">Loading...</span>
+          <span class="search-stats" id="searchStats"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
   <main>
     <section>
-      <h2>Mayflower State Code Titles</h2>
-      <p>
-        Find the M.S.C. Titles below. For the official laws and regulations, refer
-        to the
-        <a
-          href="https://docs.google.com/spreadsheets/d/19wm3zyZKKYvWYyeNFsyn9tLkdMW9XfRw9NSaUoUNWGI/edit?gid=1409593885#gid=1409593885"
-          target="_blank"
-        >
-          M.S.C. Google Sheet
-        </a>.
-      </p>
-      <ul class="file-list" id="titles"></ul>
-    </section>
-
-    <section>
-      <h2>File Preview</h2>
-      <div class="iframe-container">
-        <iframe id="previewFrame" src=""></iframe>
+      <div class="title-grid" id="titleGrid">
+        <!-- Injected by JavaScript -->
       </div>
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <span class="footer-divider">·</span>
+        <a href="#">Contact</a>
+        <span class="footer-divider">·</span>
+        <a href="#">Privacy Policy</a>
+        <span class="footer-divider">·</span>
+        <a href="#">Accessibility</a>
+      </div>
+      <div>
+        &copy; 2026 State of Fairmont. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PROVISIONS DATA (external) ===== -->
+  <script src="provisions.js"></script>
+
+  <!-- ===== MAIN APPLICATION ===== -->
   <script>
-    const toggleButton = document.getElementById('darkModeToggle');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
+    (function() {
+      'use strict';
 
-    const repoOwner = 'onzok';
-    const repoName = 'StatePortal';
+      // ----- DOM refs -----
+      const toggleAllBtn = document.getElementById('toggleAllBtn');
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const searchClear = document.getElementById('searchClear');
+      const searchStats = document.getElementById('searchStats');
+      const grid = document.getElementById('titleGrid');
+      const statsBadge = document.getElementById('statsBadge');
 
-    async function fetchFileList(folderPath, listId) {
-      const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`;
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error(`Failed to fetch file list from ${folderPath}`);
-        const files = await response.json();
-        updateFileList(files, listId, folderPath);
-      } catch (error) {
-        console.error(error);
-      }
-    }
+      let allExpanded = false;
+      let titlesData = [];
+      let allCards = [];
 
-    function updateFileList(files, listId, folderPath) {
-      const fileList = document.getElementById(listId);
-      fileList.innerHTML = '';
-
-      files.sort((a, b) => {
-        const parseTitle = (title) => {
-          const match = title.match(/^Title (\d+)([A-Z]?)_/);
-          if (!match) return [Infinity, ''];
-          const [, num, letter] = match;
-          return [parseInt(num, 10), letter];
-        };
-        const [numA, letterA] = parseTitle(a.name);
-        const [numB, letterB] = parseTitle(b.name);
-        if (numA === numB) return letterA.localeCompare(letterB);
-        return numA - numB;
+      // ----- Expand / Collapse All -----
+      toggleAllBtn.addEventListener('click', function() {
+        allExpanded = !allExpanded;
+        const cards = document.querySelectorAll('.title-card');
+        cards.forEach(card => {
+          if (allExpanded) {
+            card.classList.add('expanded');
+          } else {
+            card.classList.remove('expanded');
+          }
+        });
+        this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
       });
 
-      files.forEach(file => {
-        let displayName = file.name.replace(/_/g, ' ').replace(/\.html$/i, '');
-        const fileUrl = `https://${repoOwner}.github.io/${repoName}/${folderPath}/${encodeURIComponent(file.name)}`;
+      // ----- Get data from external provisions.js -----
+      if (typeof TITLES_DATA !== 'undefined') {
+        titlesData = TITLES_DATA;
+      } else {
+        console.warn('provisions.js not found. Using fallback data.');
+        titlesData = [
+          {
+            name: 'Title 1 — General Provisions',
+            color: '#e8f4f8',
+            code: [
+              { sec: '§ 1-101', text: 'This Code shall be known as the Fairmont State Code.' },
+              { sec: '§ 1-102', text: 'The laws herein apply to all persons within the State.' },
+            ]
+          }
+        ];
+      }
 
-        const listItem = document.createElement('li');
+      // ===== RENDER FUNCTION =====
+      function renderCards() {
+        grid.innerHTML = '';
+        allCards = [];
 
-        const titleSpan = document.createElement('span');
-        titleSpan.textContent = displayName;
-        titleSpan.className = 'file-title';
-        titleSpan.addEventListener('click', () => {
-          document.getElementById('previewFrame').src = fileUrl;
+        // Count total sections & subtitles
+        let totalSections = 0;
+        let totalSubtitles = 0;
+
+        titlesData.forEach(title => {
+          if (title.code) {
+            title.code.forEach(item => {
+              if (item.subsections) {
+                totalSubtitles += item.subsections.length;
+                totalSections++;
+              } else {
+                totalSections++;
+              }
+            });
+          }
         });
 
-        const newTabLink = document.createElement('a');
-        newTabLink.className = 'new-tab-link';
-        newTabLink.href = fileUrl;
-        newTabLink.target = '_blank';
-        newTabLink.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M6 2a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0V4.41l-9.29 9.3a1 1 0 0 1-1.42-1.42L10.59 3H7a1 1 0 0 1-1-1z"/>
-          </svg>
-        `;
+        statsBadge.textContent = `${titlesData.length} titles · ${totalSections} sections · ${totalSubtitles} subsections`;
 
-        listItem.appendChild(titleSpan);
-        listItem.appendChild(newTabLink);
-        fileList.appendChild(listItem);
+        // Build each title card
+        titlesData.forEach((title, index) => {
+          const card = document.createElement('div');
+          card.className = 'title-card';
+          card.dataset.title = title.name;
+
+          // Store the color for this title
+          const titleColor = title.color || '#f0f4f8';
+
+          // ----- HEADER -----
+          const header = document.createElement('div');
+          header.className = 'title-card-header';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'title-name';
+
+          // Title name with badge (no color indicator)
+          nameSpan.innerHTML = `
+            ${title.name}
+            <span class="badge">F.S.C.</span>
+          `;
+
+          const iconSpan = document.createElement('span');
+          iconSpan.className = 'expand-icon';
+          iconSpan.textContent = '▾';
+
+          header.appendChild(nameSpan);
+          header.appendChild(iconSpan);
+
+          // ----- CONTENT -----
+          const content = document.createElement('div');
+          content.className = 'title-content';
+
+          const innerWrapper = document.createElement('div');
+          innerWrapper.className = 'title-content-inner';
+
+          const codeBlock = document.createElement('div');
+          codeBlock.className = 'state-code-block';
+
+          // APPLY THE COLOR TO THE CODE BLOCK
+          codeBlock.style.backgroundColor = titleColor;
+          // Adjust border color to be slightly darker
+          codeBlock.style.borderLeftColor = darkenColor(titleColor, 30);
+
+          // Build code sections
+          if (title.code && title.code.length > 0) {
+            title.code.forEach((item) => {
+              // Create a wrapper for this section
+              const sectionWrapper = document.createElement('div');
+              sectionWrapper.className = 'code-section';
+
+              // Section number and text (same for both types)
+              const secSpan = document.createElement('span');
+              secSpan.className = 'section-number';
+              secSpan.textContent = item.sec || '';
+
+              const textSpan = document.createElement('span');
+              textSpan.className = 'section-text';
+              textSpan.textContent = item.text || '';
+
+              sectionWrapper.appendChild(secSpan);
+              sectionWrapper.appendChild(textSpan);
+
+              // If there are subsections, add them indented with a line
+              if (item.subsections && Array.isArray(item.subsections) && item.subsections.length > 0) {
+                const subContainer = document.createElement('div');
+                subContainer.className = 'subsection-container';
+
+                item.subsections.forEach((sub) => {
+                  const subLine = document.createElement('div');
+                  subLine.className = 'subsection-item';
+
+                  const subNumSpan = document.createElement('span');
+                  subNumSpan.className = 'sub-number';
+                  subNumSpan.textContent = sub.sec || '';
+
+                  const subTextSpan = document.createElement('span');
+                  subTextSpan.className = 'sub-text';
+                  subTextSpan.textContent = sub.text || '';
+
+                  subLine.appendChild(subNumSpan);
+                  subLine.appendChild(subTextSpan);
+                  subContainer.appendChild(subLine);
+                });
+
+                sectionWrapper.appendChild(subContainer);
+              }
+
+              codeBlock.appendChild(sectionWrapper);
+            });
+          }
+
+          const meta = document.createElement('div');
+          meta.className = 'code-meta';
+          meta.textContent = `— ${title.name} · Fairmont State Code —`;
+
+          codeBlock.appendChild(meta);
+          innerWrapper.appendChild(codeBlock);
+          content.appendChild(innerWrapper);
+          card.appendChild(header);
+          card.appendChild(content);
+          grid.appendChild(card);
+
+          // Store reference
+          allCards.push(card);
+
+          // ----- Toggle on header click -----
+          header.addEventListener('click', function(e) {
+            e.stopPropagation();
+            card.classList.toggle('expanded');
+          });
+
+          // Expand first card by default
+          if (index === 0) {
+            card.classList.add('expanded');
+          }
+        });
+
+        // Update "Expand All" button state
+        const allExpandedDefault = allCards.every(c => c.classList.contains('expanded'));
+        if (allExpandedDefault) {
+          toggleAllBtn.textContent = 'Collapse All';
+          allExpanded = true;
+        }
+
+        // Store text content for search
+        allCards.forEach(card => {
+          const textContent = card.textContent || '';
+          card.dataset.searchText = textContent.toLowerCase();
+        });
+      }
+
+      // ----- Helper: darken a color for the border -----
+      function darkenColor(hex, amount) {
+        // Remove # if present
+        let color = hex.replace('#', '');
+        
+        // Parse hex
+        let r = parseInt(color.substring(0, 2), 16);
+        let g = parseInt(color.substring(2, 4), 16);
+        let b = parseInt(color.substring(4, 6), 16);
+        
+        // Darken
+        r = Math.max(0, r - amount);
+        g = Math.max(0, g - amount);
+        b = Math.max(0, b - amount);
+        
+        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+      }
+
+      renderCards();
+
+      // ===== SEARCH FUNCTIONALITY =====
+
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        // Clear previous highlights
+        document.querySelectorAll('.highlight').forEach(el => {
+          const parent = el.parentNode;
+          parent.replaceChild(document.createTextNode(el.textContent), el);
+          parent.normalize();
+        });
+
+        if (!query) {
+          allCards.forEach(card => {
+            card.classList.remove('hidden');
+          });
+          searchStats.textContent = '';
+          searchClear.classList.remove('visible');
+          return;
+        }
+
+        searchClear.classList.add('visible');
+
+        let matchCount = 0;
+        let totalMatches = 0;
+
+        allCards.forEach(card => {
+          const text = card.dataset.searchText || '';
+          const matches = text.includes(query);
+
+          if (matches) {
+            card.classList.remove('hidden');
+            matchCount++;
+            highlightMatches(card, query);
+            card.classList.add('expanded');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        const allText = allCards.map(c => c.dataset.searchText || '').join(' ');
+        const count = (allText.match(new RegExp(query, 'g')) || []).length;
+        totalMatches = count;
+
+        if (matchCount === 0) {
+          searchStats.textContent = 'No results found';
+        } else {
+          searchStats.textContent = `${matchCount} title${matchCount > 1 ? 's' : ''} · ${totalMatches} match${totalMatches > 1 ? 'es' : ''}`;
+        }
+
+        toggleAllBtn.textContent = 'Collapse All';
+        allExpanded = true;
+      }
+
+      function highlightMatches(card, query) {
+        const walker = document.createTreeWalker(
+          card,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: function(node) {
+              if (node.parentElement.closest('.section-number') ||
+                  node.parentElement.closest('.badge') ||
+                  node.parentElement.closest('.section-count') ||
+                  node.parentElement.closest('.sub-badge') ||
+                  node.parentElement.closest('.code-meta') ||
+                  node.parentElement.closest('.sub-number')) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          textNodes.push(node);
+        }
+
+        textNodes.forEach(textNode => {
+          const text = textNode.textContent;
+          if (!text) return;
+
+          const lowerText = text.toLowerCase();
+          const queryLower = query.toLowerCase();
+
+          if (lowerText.includes(queryLower)) {
+            const fragment = document.createDocumentFragment();
+            let lastIndex = 0;
+            let index = lowerText.indexOf(queryLower);
+
+            while (index !== -1) {
+              if (index > lastIndex) {
+                fragment.appendChild(document.createTextNode(text.substring(lastIndex, index)));
+              }
+
+              const highlightSpan = document.createElement('span');
+              highlightSpan.className = 'highlight';
+              highlightSpan.textContent = text.substring(index, index + queryLower.length);
+              fragment.appendChild(highlightSpan);
+
+              lastIndex = index + queryLower.length;
+              index = lowerText.indexOf(queryLower, lastIndex);
+            }
+
+            if (lastIndex < text.length) {
+              fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+            }
+
+            textNode.parentNode.replaceChild(fragment, textNode);
+          }
+        });
+      }
+
+      // ----- Search event listeners -----
+      searchBtn.addEventListener('click', performSearch);
+
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch();
+        }
       });
-    }
 
-    fetchFileList('titles', 'titles');
+      searchInput.addEventListener('input', function() {
+        if (!this.value.trim()) {
+          searchClear.classList.remove('visible');
+          performSearch();
+        }
+      });
+
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.classList.remove('visible');
+        performSearch();
+        searchInput.focus();
+      });
+
+      // ----- Expose rebuild for console debugging -----
+      window.rebuildCards = renderCards;
+
+      console.log('Brought to you by State Registrar 1onzok.');
+    })();
   </script>
+
 </body>
 </html>
