@@ -212,7 +212,7 @@
       margin-left: 0.3rem;
     }
 
-    /* ===== FULL-WIDTH SECTION HEADER (outside main) ===== */
+    /* ===== FULL-WIDTH SECTION HEADER ===== */
     .section-header-full {
       background: var(--section-header-bg);
       padding: 3rem 1.5rem;
@@ -363,7 +363,7 @@
       transform: rotate(180deg);
     }
 
-    /* ===== COLLAPSIBLE CONTENT WITH FADE ANIMATION ===== */
+    /* ===== COLLAPSIBLE CONTENT ===== */
     .title-content {
       max-height: 0;
       overflow: hidden;
@@ -405,7 +405,6 @@
       transition: background-color 0.3s, border-color 0.3s;
     }
 
-    /* ----- UNIFIED SECTION STYLE (both regular and with subsections) ----- */
     .code-section {
       margin-bottom: 0.8rem;
     }
@@ -422,7 +421,6 @@
       display: inline;
     }
 
-    /* ----- Subsection container with left border line ----- */
     .subsection-container {
       margin-left: 5rem;
       padding-left: 0.8rem;
@@ -475,47 +473,67 @@
     footer {
       background: var(--footer-bg);
       color: var(--footer-text);
-      padding: 1.5rem 1.5rem;
-      text-align: left;
+      padding: 2.5rem 1.5rem;
       border-top: 1px solid var(--border-light);
       margin-top: 2rem;
       display: flex;
       justify-content: center;
     }
 
-    footer .footer-inner {
+    .footer-inner {
       max-width: 1300px;
       width: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
+      gap: 0.6rem;
       padding: 0 1.2rem;
     }
 
-    footer .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+    .footer-brand {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.3px;
     }
 
-    footer .footer-links a {
+    .footer-sub {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: -0.2rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 0.2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .footer-links a {
       color: var(--footer-text);
       text-decoration: none;
-      transition: color 0.2s;
+      font-size: 0.9rem;
       font-weight: 400;
+      transition: color 0.2s;
     }
 
-    footer .footer-links a:hover {
-      color: #fff;
+    .footer-links a:hover {
+      color: #ffffff;
       text-decoration: underline;
     }
 
-    footer .footer-divider {
-      opacity: 0.3;
-      font-size: 1.2rem;
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.2rem;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -526,8 +544,6 @@
       .title-card-header { padding: 0.7rem 1rem; flex-wrap: wrap; }
       .state-code-block { padding: 1rem; font-size: 0.85rem; }
       .section-title { font-size: 1.6rem; }
-      footer .footer-links { gap: 0.8rem; }
-      footer .footer-divider { display: none; }
       .search-container { min-width: 140px; max-width: 100%; }
       .search-container input { font-size: 0.8rem; }
       .search-container button { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
@@ -543,8 +559,17 @@
       main {
         padding-top: 1rem;
       }
-      footer .footer-inner {
+
+      footer {
+        padding: 2rem 1rem;
+      }
+      .footer-inner {
         padding: 0 0.5rem;
+      }
+      .footer-links {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
       }
       .header-inner {
         padding: 0 0.5rem;
@@ -572,7 +597,7 @@
     </div>
   </header>
 
-  <!-- ===== FULL-WIDTH SECTION HEADER with BIG padding ===== -->
+  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Fairmont State Code</h2>
@@ -605,18 +630,17 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
+      <div class="footer-brand">State of Fairmont</div>
+      <div class="footer-sub">Office of the State Code</div>
+
+      <div class="footer-divider"></div>
+
       <div class="footer-links">
-        <a href="#">About</a>
-        <span class="footer-divider">·</span>
-        <a href="#">Contact</a>
-        <span class="footer-divider">·</span>
-        <a href="#">Privacy Policy</a>
-        <span class="footer-divider">·</span>
-        <a href="#">Accessibility</a>
+        <a href="#">Discord</a>
+        <a href="#">Roblox Group</a>
       </div>
-      <div>
-        &copy; 2026 State of Fairmont. All rights reserved.
-      </div>
+
+      <div class="footer-copy">© State of Fairmont — All provisions enforced.</div>
     </div>
   </footer>
 
@@ -702,17 +726,13 @@
           card.className = 'title-card';
           card.dataset.title = title.name;
 
-          // Store the color for this title
           const titleColor = title.color || '#f0f4f8';
 
-          // ----- HEADER -----
           const header = document.createElement('div');
           header.className = 'title-card-header';
 
           const nameSpan = document.createElement('span');
           nameSpan.className = 'title-name';
-
-          // Title name with badge (no color indicator)
           nameSpan.innerHTML = `
             ${title.name}
             <span class="badge">F.S.C.</span>
@@ -725,7 +745,6 @@
           header.appendChild(nameSpan);
           header.appendChild(iconSpan);
 
-          // ----- CONTENT -----
           const content = document.createElement('div');
           content.className = 'title-content';
 
@@ -734,20 +753,14 @@
 
           const codeBlock = document.createElement('div');
           codeBlock.className = 'state-code-block';
-
-          // APPLY THE COLOR TO THE CODE BLOCK
           codeBlock.style.backgroundColor = titleColor;
-          // Adjust border color to be slightly darker
           codeBlock.style.borderLeftColor = darkenColor(titleColor, 30);
 
-          // Build code sections
           if (title.code && title.code.length > 0) {
             title.code.forEach((item) => {
-              // Create a wrapper for this section
               const sectionWrapper = document.createElement('div');
               sectionWrapper.className = 'code-section';
 
-              // Section number and text (same for both types)
               const secSpan = document.createElement('span');
               secSpan.className = 'section-number';
               secSpan.textContent = item.sec || '';
@@ -759,7 +772,6 @@
               sectionWrapper.appendChild(secSpan);
               sectionWrapper.appendChild(textSpan);
 
-              // If there are subsections, add them indented with a line
               if (item.subsections && Array.isArray(item.subsections) && item.subsections.length > 0) {
                 const subContainer = document.createElement('div');
                 subContainer.className = 'subsection-container';
@@ -799,61 +811,47 @@
           card.appendChild(content);
           grid.appendChild(card);
 
-          // Store reference
           allCards.push(card);
 
-          // ----- Toggle on header click -----
           header.addEventListener('click', function(e) {
             e.stopPropagation();
             card.classList.toggle('expanded');
           });
 
-          // Expand first card by default
           if (index === 0) {
             card.classList.add('expanded');
           }
         });
 
-        // Update "Expand All" button state
         const allExpandedDefault = allCards.every(c => c.classList.contains('expanded'));
         if (allExpandedDefault) {
           toggleAllBtn.textContent = 'Collapse All';
           allExpanded = true;
         }
 
-        // Store text content for search
         allCards.forEach(card => {
           const textContent = card.textContent || '';
           card.dataset.searchText = textContent.toLowerCase();
         });
       }
 
-      // ----- Helper: darken a color for the border -----
       function darkenColor(hex, amount) {
-        // Remove # if present
         let color = hex.replace('#', '');
-        
-        // Parse hex
         let r = parseInt(color.substring(0, 2), 16);
         let g = parseInt(color.substring(2, 4), 16);
         let b = parseInt(color.substring(4, 6), 16);
-        
-        // Darken
         r = Math.max(0, r - amount);
         g = Math.max(0, g - amount);
         b = Math.max(0, b - amount);
-        
         return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
       }
 
       renderCards();
 
       // ===== SEARCH FUNCTIONALITY =====
-
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
-        // Clear previous highlights
         document.querySelectorAll('.highlight').forEach(el => {
           const parent = el.parentNode;
           parent.replaceChild(document.createTextNode(el.textContent), el);
@@ -962,7 +960,6 @@
         });
       }
 
-      // ----- Search event listeners -----
       searchBtn.addEventListener('click', performSearch);
 
       searchInput.addEventListener('keydown', function(e) {
@@ -986,7 +983,6 @@
         searchInput.focus();
       });
 
-      // ----- Expose rebuild for console debugging -----
       window.rebuildCards = renderCards;
 
       console.log('Brought to you by State Registrar 1onzok.');
