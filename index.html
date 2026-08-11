@@ -61,13 +61,24 @@
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 0.8rem 1.5rem;
       background: var(--header-bg);
       color: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       flex-wrap: wrap;
       gap: 0.5rem 1rem;
+    }
+
+    .header-inner {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding: 0 1.2rem;
     }
 
     .header-left {
@@ -203,7 +214,7 @@
 
     /* ===== FULL-WIDTH SECTION HEADER (outside main) ===== */
     .section-header-full {
-      background: var(--section-header-bg); /* gray */
+      background: var(--section-header-bg);
       padding: 3rem 1.5rem;
       width: 100%;
       border: none;
@@ -465,26 +476,29 @@
       background: var(--footer-bg);
       color: var(--footer-text);
       padding: 1.5rem 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
+      text-align: left;
       border-top: 1px solid var(--border-light);
       margin-top: 2rem;
+      display: flex;
+      justify-content: center;
     }
 
     footer .footer-inner {
       max-width: 1300px;
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
+      padding: 0 1.2rem;
     }
 
     footer .footer-links {
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     footer .footer-links a {
@@ -529,6 +543,12 @@
       main {
         padding-top: 1rem;
       }
+      footer .footer-inner {
+        padding: 0 0.5rem;
+      }
+      .header-inner {
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
@@ -536,17 +556,19 @@
 
   <!-- ===== HEADER ===== -->
   <header>
-    <div class="header-left">
-      <img src="https://i.imgur.com/lMFLFOE.png" alt="Fairmont Icon" class="header-logo" />
-      <h1>State of Fairmont</h1>
-    </div>
-    <div class="header-actions">
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search F.S.C..." />
-        <button id="searchBtn">Search</button>
-        <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="https://i.imgur.com/lMFLFOE.png" alt="Fairmont Icon" class="header-logo" />
+        <h1>State of Fairmont</h1>
       </div>
-      <button class="toggle-all-btn" id="toggleAllBtn">Expand All</button>
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search F.S.C..." />
+          <button id="searchBtn">Search</button>
+          <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
+        </div>
+        <button class="toggle-all-btn" id="toggleAllBtn">Expand All</button>
+      </div>
     </div>
   </header>
 
@@ -556,7 +578,7 @@
       <h2 class="section-title">Fairmont State Code</h2>
       <div class="sub-info">
         <div class="description-line">
-          <span>The consolidated laws of the State of Aurelia. Select a title below to review its provisions. The Code is maintained by the Office of the State Registrar. No law or policy passed within the state legislature is active unless enterd into this code.<br><br>All provisions currently listed within the code are placeholders.</span>
+          <span>Official laws and regulations — click a title to expand.</span>
         </div>
         <div class="meta-line">
           <span>
