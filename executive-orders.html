@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fairmont Executive Orders</title>
+
+  <meta property="og:title" content="Fairmont Executive Orders"/>
+  <meta property="og:description" content="View Executive Orders of the State of Fairmont"/>
+  <meta property="og:image" content="https://i.imgur.com/smgiw56.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --background: #f7f7f7;
+      --text-color: #1e1e1e;
+      --link-color: #1a73e8;
+      --button-bg: #e0e0e0;
+      --button-text: #1e1e1e;
+      --header-bg: linear-gradient(135deg, #1a4a3e, #2a6b5a);
+      --card-bg: #ffffff;
+      --border-light: #d0d0d0;
+      --code-bg: #f0f4f8;
+      --code-border: #b0c4d9;
+      --shadow: 0 4px 12px rgba(0,0,0,0.06);
+      --radius: 10px;
+      --footer-bg: #1a2a24;
+      --footer-text: #c0d0c8;
+      --search-bg: #ffffff;
+      --search-border: #d0d0d0;
+      --search-text: #1e1e1e;
+      --highlight-bg: #ffeb3b;
+      --highlight-text: #1e1e1e;
+      --separator-color: #b0c4d9;
+      --section-header-bg: #d3d7da;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--header-bg);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .header-inner {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding: 0 1.2rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .header-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .main-nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s, background 0.2s;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+    }
+
+    .main-nav a:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .main-nav a.active {
+      color: #ffffff;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .toggle-all-btn {
+      padding: 0.4rem 1rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 40px;
+      transition: background 0.2s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .toggle-all-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--search-bg);
+      border: 1px solid var(--search-border);
+      border-radius: 40px;
+      padding: 0.2rem 0.2rem 0.2rem 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      flex: 1;
+      min-width: 180px;
+      max-width: 350px;
+    }
+
+    .search-container:focus-within {
+      border-color: var(--link-color);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    }
+
+    .search-container input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--search-text);
+      outline: none;
+      min-width: 80px;
+    }
+
+    .search-container input::placeholder {
+      color: var(--search-text);
+      opacity: 0.5;
+    }
+
+    .search-container button {
+      background: var(--link-color);
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .search-container button:hover {
+      background: #1557b0;
+      transform: scale(0.97);
+    }
+
+    .search-container button:active {
+      transform: scale(0.95);
+    }
+
+    .search-clear {
+      background: transparent;
+      border: none;
+      color: var(--search-text);
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 0 0.3rem;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+      display: none;
+      line-height: 1;
+    }
+
+    .search-clear:hover {
+      opacity: 1;
+    }
+
+    .search-clear.visible {
+      display: block;
+    }
+
+    .search-stats {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-left: 0.3rem;
+    }
+
+    /* ===== FULL-WIDTH SECTION HEADER ===== */
+    .section-header-full {
+      background: var(--section-header-bg);
+      padding: 3rem 1.5rem;
+      width: 100%;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border-bottom: 2px solid #c0c4c8;
+    }
+
+    .section-header-full .section-header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+
+    .sub-info {
+      opacity: 0.85;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .sub-info .description-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+    }
+
+    .sub-info .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .sub-info a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted currentColor;
+    }
+
+    .sub-info a:hover {
+      border-bottom: 2px solid;
+    }
+
+    .stats-badge {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+      width: 100%;
+      flex: 1;
+      padding-top: 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.8rem;
+    }
+
+    /* ===== EXECUTIVE ORDER CARDS ===== */
+    .order-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .order-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+      transition: border-color 0.2s, box-shadow 0.2s, opacity 0.3s;
+      overflow: hidden;
+    }
+
+    .order-card.hidden {
+      display: none;
+    }
+
+    .order-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.4rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      gap: 1rem;
+    }
+
+    .order-card-header:hover {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .order-name {
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .order-badge {
+      font-size: 0.65rem;
+      background: #8B4513;
+      color: #fff;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      opacity: 0.85;
+    }
+
+    .order-date {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+
+    .expand-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: transform 0.3s ease;
+      color: var(--link-color);
+      font-weight: 300;
+    }
+
+    .order-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    /* ===== COLLAPSIBLE CONTENT ===== */
+    .order-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      padding: 0 1.4rem;
+      background: var(--card-bg);
+      border-top: 1px solid transparent;
+    }
+
+    .order-content-inner {
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+      padding: 0;
+    }
+
+    .order-card.expanded .order-content {
+      max-height: 5000px;
+      padding: 1.2rem 1.4rem 1.8rem;
+      border-top-color: var(--border-light);
+    }
+
+    .order-card.expanded .order-content-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== EXECUTIVE ORDER CONTENT ===== */
+    .order-block {
+      font-family: 'Poppins', sans-serif;
+      background: var(--code-bg);
+      border-left: 5px solid #8B4513;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .order-section {
+      margin-bottom: 0.8rem;
+    }
+
+    .order-section .section-number {
+      display: inline-block;
+      font-weight: 600;
+      color: #8B4513;
+      min-width: 5rem;
+      font-size: 0.9rem;
+    }
+
+    .order-section .section-text {
+      display: inline;
+    }
+
+    .order-meta {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.7rem;
+      opacity: 0.5;
+      margin-top: 0.8rem;
+      border-top: 1px dashed var(--border-light);
+      padding-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    .order-signature {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+      font-style: italic;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ===== SEARCH HIGHLIGHT ===== */
+    .highlight {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-text);
+      padding: 0.1rem 0.2rem;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border-light);
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0 1.2rem;
+    }
+
+    .footer-brand {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-sub {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: -0.2rem;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 0.2rem 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .footer-links a {
+      color: var(--footer-text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .header-left h1 { font-size: 1rem; }
+      .header-logo { width: 36px; height: 36px; }
+      .order-name { font-size: 1rem; }
+      .order-card-header { padding: 0.7rem 1rem; flex-wrap: wrap; }
+      .order-block { padding: 1rem; font-size: 0.85rem; }
+      .section-title { font-size: 1.6rem; }
+      .search-container { min-width: 140px; max-width: 100%; }
+      .search-container input { font-size: 0.8rem; }
+      .search-container button { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+      .section-header-full { padding: 2rem 1rem; }
+      .section-header-full .section-header-inner { padding: 0 0.5rem; }
+      main { padding-top: 1rem; }
+      footer { padding: 2rem 1rem; }
+      .footer-inner { padding: 0 0.5rem; }
+      .footer-links { gap: 1rem; flex-direction: column; align-items: flex-start; }
+      .header-inner { padding: 0 0.5rem; }
+      .main-nav { gap: 0.8rem; }
+      .main-nav a { font-size: 0.75rem; padding: 0.2rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="https://i.imgur.com/lMFLFOE.png" alt="Fairmont Icon" class="header-logo" />
+        <h1>State of Fairmont</h1>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="state-code.html">State Code</a>
+        <a href="executive-orders.html" class="active">Executive Orders</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search orders..." />
+          <button id="searchBtn">Search</button>
+          <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
+        </div>
+        <button class="toggle-all-btn" id="toggleAllBtn">Expand All</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
+  <div class="section-header-full">
+    <div class="section-header-inner">
+      <h2 class="section-title">Executive Orders</h2>
+      <div class="sub-info">
+        <div class="description-line">
+          <span>Official executive orders issued by the Governor of Fairmont.</span>
+        </div>
+        <div class="meta-line">
+          <span>
+            <a href="https://docs.google.com/spreadsheets/d/19wm3zyZKKYvWYyeNFsyn9tLkdMW9XfRw9NSaUoUNWGI/edit?gid=1409593885#gid=1409593885" target="_blank">
+              Executive Orders Database
+            </a>
+          </span>
+          <span class="stats-badge" id="statsBadge">Loading...</span>
+          <span class="search-stats" id="searchStats"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <section>
+      <div class="order-grid" id="orderGrid">
+        <!-- Injected by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">State of Fairmont</div>
+      <div class="footer-sub">Office of the State Code</div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-links">
+        <a href="#">Discord</a>
+        <a href="#">Roblox Group</a>
+        <a href="#">Appeals Form</a>
+      </div>
+
+      <div class="footer-copy">© State of Fairmont — All provisions enforced.</div>
+    </div>
+  </footer>
+
+  <!-- ===== EXECUTIVE ORDERS DATA ===== -->
+  <script>
+    // ===== EXECUTIVE ORDERS DATA =====
+    const ORDERS_DATA = [
+      {
+        number: 'EO 2024-001',
+        title: 'Emergency Management Protocols',
+        date: 'January 15, 2024',
+        color: '#fef3e8',
+        sections: [
+          { sec: '§ 1', text: 'The Governor hereby establishes the Emergency Management Council to coordinate disaster response across all municipalities.' },
+          { sec: '§ 2', text: 'All state agencies shall develop and maintain continuity of operations plans to ensure essential services during emergencies.' },
+          { sec: '§ 3', text: 'The Department of Homeland Security shall maintain a statewide emergency alert system accessible to all residents.' },
+        ],
+        signature: 'Signed by: Governor Sarah Mitchell, January 15, 2024'
+      },
+      {
+        number: 'EO 2024-002',
+        title: 'Public Records Modernization',
+        date: 'February 3, 2024',
+        color: '#e8f4f8',
+        sections: [
+          { sec: '§ 1', text: 'All state agencies shall transition to digital records management systems by December 31, 2024.' },
+          { sec: '§ 2', text: 'A centralized public records portal shall be established to provide transparent access to government documents.' },
+          { sec: '§ 3', text: 'The State Archives shall develop preservation standards for digital records.' },
+        ],
+        signature: 'Signed by: Governor Sarah Mitchell, February 3, 2024'
+      },
+      {
+        number: 'EO 2024-003',
+        title: 'Environmental Protection Initiative',
+        date: 'March 12, 2024',
+        color: '#e8f8ee',
+        sections: [
+          { sec: '§ 1', text: 'The state shall achieve net-zero greenhouse gas emissions by 2050.' },
+          { sec: '§ 2', text: 'A Green Energy Fund shall be established to support renewable energy projects in underserved communities.' },
+          { sec: '§ 3', text: 'The Department of Environmental Protection shall update water quality standards to protect all waterways.' },
+          { sec: '§ 4', text: 'State agencies shall prioritize sustainable procurement practices for all government contracts.' },
+        ],
+        signature: 'Signed by: Governor Sarah Mitchell, March 12, 2024'
+      },
+      {
+        number: 'EO 2024-004',
+        title: 'Statewide Broadband Access',
+        date: 'April 5, 2024',
+        color: '#f0f0fa',
+        sections: [
+          { sec: '§ 1', text: 'High-speed internet access is declared essential infrastructure for all residents of Fairmont.' },
+          { sec: '§ 2', text: 'The Broadband Access Fund shall allocate $50 million to expand connectivity in rural and underserved areas.' },
+          { sec: '§ 3', text: 'All new state-funded construction projects shall include broadband infrastructure planning.' },
+        ],
+        signature: 'Signed by: Governor Sarah Mitchell, April 5, 2024'
+      }
+    ];
+  </script>
+
+  <!-- ===== MAIN APPLICATION ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ----- DOM refs -----
+      const toggleAllBtn = document.getElementById('toggleAllBtn');
+      const searchInput = document.getElementById('searchInput');
+      const searchBtn = document.getElementById('searchBtn');
+      const searchClear = document.getElementById('searchClear');
+      const searchStats = document.getElementById('searchStats');
+      const grid = document.getElementById('orderGrid');
+      const statsBadge = document.getElementById('statsBadge');
+
+      let allExpanded = false;
+      let allCards = [];
+
+      // ----- Expand / Collapse All -----
+      toggleAllBtn.addEventListener('click', function() {
+        allExpanded = !allExpanded;
+        const cards = document.querySelectorAll('.order-card');
+        cards.forEach(card => {
+          if (allExpanded) {
+            card.classList.add('expanded');
+          } else {
+            card.classList.remove('expanded');
+          }
+        });
+        this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+      });
+
+      // ===== RENDER FUNCTION =====
+      function renderCards() {
+        grid.innerHTML = '';
+        allCards = [];
+
+        // Count total sections
+        let totalSections = 0;
+        ORDERS_DATA.forEach(order => {
+          if (order.sections) {
+            totalSections += order.sections.length;
+          }
+        });
+
+        statsBadge.textContent = `${ORDERS_DATA.length} orders · ${totalSections} provisions`;
+
+        // Build each order card
+        ORDERS_DATA.forEach((order, index) => {
+          const card = document.createElement('div');
+          card.className = 'order-card';
+          card.dataset.title = `${order.number} - ${order.title}`;
+
+          const orderColor = order.color || '#f0f4f8';
+
+          // ----- HEADER -----
+          const header = document.createElement('div');
+          header.className = 'order-card-header';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'order-name';
+          nameSpan.innerHTML = `
+            ${order.number} — ${order.title}
+            <span class="order-date">${order.date}</span>
+            <span class="order-badge">Executive Order</span>
+          `;
+
+          const iconSpan = document.createElement('span');
+          iconSpan.className = 'expand-icon';
+          iconSpan.textContent = '▾';
+
+          header.appendChild(nameSpan);
+          header.appendChild(iconSpan);
+
+          // ----- CONTENT -----
+          const content = document.createElement('div');
+          content.className = 'order-content';
+
+          const innerWrapper = document.createElement('div');
+          innerWrapper.className = 'order-content-inner';
+
+          const orderBlock = document.createElement('div');
+          orderBlock.className = 'order-block';
+          orderBlock.style.backgroundColor = orderColor;
+          orderBlock.style.borderLeftColor = darkenColor(orderColor, 40);
+
+          // Build sections
+          if (order.sections && order.sections.length > 0) {
+            order.sections.forEach((item) => {
+              const sectionWrapper = document.createElement('div');
+              sectionWrapper.className = 'order-section';
+
+              const secSpan = document.createElement('span');
+              secSpan.className = 'section-number';
+              secSpan.textContent = item.sec || '';
+
+              const textSpan = document.createElement('span');
+              textSpan.className = 'section-text';
+              textSpan.textContent = item.text || '';
+
+              sectionWrapper.appendChild(secSpan);
+              sectionWrapper.appendChild(textSpan);
+              orderBlock.appendChild(sectionWrapper);
+            });
+          }
+
+          // Add signature
+          if (order.signature) {
+            const signature = document.createElement('div');
+            signature.className = 'order-signature';
+            signature.textContent = order.signature;
+            orderBlock.appendChild(signature);
+          }
+
+          const meta = document.createElement('div');
+          meta.className = 'order-meta';
+          meta.textContent = `— ${order.number} · State of Fairmont —`;
+
+          orderBlock.appendChild(meta);
+          innerWrapper.appendChild(orderBlock);
+          content.appendChild(innerWrapper);
+          card.appendChild(header);
+          card.appendChild(content);
+          grid.appendChild(card);
+
+          allCards.push(card);
+
+          // ----- Toggle on header click -----
+          header.addEventListener('click', function(e) {
+            e.stopPropagation();
+            card.classList.toggle('expanded');
+          });
+
+          // Expand first card by default
+          if (index === 0) {
+            card.classList.add('expanded');
+          }
+        });
+
+        // Update "Expand All" button state
+        const allExpandedDefault = allCards.every(c => c.classList.contains('expanded'));
+        if (allExpandedDefault) {
+          toggleAllBtn.textContent = 'Collapse All';
+          allExpanded = true;
+        }
+
+        // Store text content for search
+        allCards.forEach(card => {
+          const textContent = card.textContent || '';
+          card.dataset.searchText = textContent.toLowerCase();
+        });
+      }
+
+      // ----- Helper: darken a color for the border -----
+      function darkenColor(hex, amount) {
+        let color = hex.replace('#', '');
+        let r = parseInt(color.substring(0, 2), 16);
+        let g = parseInt(color.substring(2, 4), 16);
+        let b = parseInt(color.substring(4, 6), 16);
+        r = Math.max(0, r - amount);
+        g = Math.max(0, g - amount);
+        b = Math.max(0, b - amount);
+        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+      }
+
+      renderCards();
+
+      // ===== SEARCH FUNCTIONALITY =====
+      function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        document.querySelectorAll('.highlight').forEach(el => {
+          const parent = el.parentNode;
+          parent.replaceChild(document.createTextNode(el.textContent), el);
+          parent.normalize();
+        });
+
+        if (!query) {
+          allCards.forEach(card => {
+            card.classList.remove('hidden');
+          });
+          searchStats.textContent = '';
+          searchClear.classList.remove('visible');
+          return;
+        }
+
+        searchClear.classList.add('visible');
+
+        let matchCount = 0;
+        let totalMatches = 0;
+
+        allCards.forEach(card => {
+          const text = card.dataset.searchText || '';
+          const matches = text.includes(query);
+
+          if (matches) {
+            card.classList.remove('hidden');
+            matchCount++;
+            highlightMatches(card, query);
+            card.classList.add('expanded');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        const allText = allCards.map(c => c.dataset.searchText || '').join(' ');
+        const count = (allText.match(new RegExp(query, 'g')) || []).length;
+        totalMatches = count;
+
+        if (matchCount === 0) {
+          searchStats.textContent = 'No results found';
+        } else {
+          searchStats.textContent = `${matchCount} order${matchCount > 1 ? 's' : ''} · ${totalMatches} match${totalMatches > 1 ? 'es' : ''}`;
+        }
+
+        toggleAllBtn.textContent = 'Collapse All';
+        allExpanded = true;
+      }
+
+      function highlightMatches(card, query) {
+        const walker = document.createTreeWalker(
+          card,
+          NodeFilter.SHOW_TEXT,
+          {
+            acceptNode: function(node) {
+              if (node.parentElement.closest('.section-number') ||
+                  node.parentElement.closest('.order-badge') ||
+                  node.parentElement.closest('.section-count') ||
+                  node.parentElement.closest('.order-meta') ||
+                  node.parentElement.closest('.order-signature')) {
+                return NodeFilter.FILTER_REJECT;
+              }
+              return NodeFilter.FILTER_ACCEPT;
+            }
+          }
+        );
+
+        const textNodes = [];
+        let node;
+        while (node = walker.nextNode()) {
+          textNodes.push(node);
+        }
+
+        textNodes.forEach(textNode => {
+          const text = textNode.textContent;
+          if (!text) return;
+
+          const lowerText = text.toLowerCase();
+          const queryLower = query.toLowerCase();
+
+          if (lowerText.includes(queryLower)) {
+            const fragment = document.createDocumentFragment();
+            let lastIndex = 0;
+            let index = lowerText.indexOf(queryLower);
+
+            while (index !== -1) {
+              if (index > lastIndex) {
+                fragment.appendChild(document.createTextNode(text.substring(lastIndex, index)));
+              }
+
+              const highlightSpan = document.createElement('span');
+              highlightSpan.className = 'highlight';
+              highlightSpan.textContent = text.substring(index, index + queryLower.length);
+              fragment.appendChild(highlightSpan);
+
+              lastIndex = index + queryLower.length;
+              index = lowerText.indexOf(queryLower, lastIndex);
+            }
+
+            if (lastIndex < text.length) {
+              fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+            }
+
+            textNode.parentNode.replaceChild(fragment, textNode);
+          }
+        });
+      }
+
+      // ----- Search event listeners -----
+      searchBtn.addEventListener('click', performSearch);
+
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          performSearch();
+        }
+      });
+
+      searchInput.addEventListener('input', function() {
+        if (!this.value.trim()) {
+          searchClear.classList.remove('visible');
+          performSearch();
+        }
+      });
+
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.classList.remove('visible');
+        performSearch();
+        searchInput.focus();
+      });
+
+      console.log('Executive Orders page ready.');
+    })();
+  </script>
+
+</body>
+</html>
