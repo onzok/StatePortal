@@ -466,18 +466,6 @@
       flex-wrap: wrap;
     }
 
-    .order-badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.15rem 0.8rem;
-      border-radius: var(--radius);
-      background: #8B4513;
-      color: #fff;
-      letter-spacing: 0.3px;
-      opacity: 0.85;
-    }
-
-
     .order-date {
       font-size: 0.75rem;
       opacity: 0.6;
@@ -494,6 +482,45 @@
       border-radius: var(--radius);
       outline: 1.5px solid #5f5f5f;
       margin-left: 0.3rem;
+    }
+
+    .order-card.retracted .order-provision .provision-text,
+    .order-card.retracted .order-signature {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+    
+    .order-card.retracted .order-block {
+      opacity: 0.7;
+    }
+
+    /* ===== ORDER STATUS BADGES ===== */
+    .order-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.8rem;
+      border-radius: var(--radius);
+      letter-spacing: 0.3px;
+      opacity: 0.85;
+      margin-left: 0.3rem;
+    }
+
+    .order-status-active {
+      background: #2e7d32;
+      color: #fff;
+    }
+
+    .order-status-retracted {
+      background: #c62828;
+      color: #fff;
+    }
+
+    .order-status-active:hover {
+      background: #1b5e20;
+    }
+
+    .order-status-retracted:hover {
+      background: #b71c1c;
     }
 
     .expand-icon {
@@ -913,6 +940,7 @@
             date: 'January 15, 2024',
             governor: 'Sarah Mitchell',
             administration: 'Mitchell Administration',
+            status: 'ACTIVE',
             color: '#fef3e8',
             provisions: [
               { sec: '§ 1', text: 'This is fallback data. Please create executive-orders-data.js with your executive orders.' },
@@ -1013,6 +1041,9 @@
           orders.forEach((order, index) => {
             const card = document.createElement('div');
             card.className = 'order-card';
+            if (order.status === 'RETRACTED') {
+              card.classList.add('retracted');
+            }
             card.dataset.title = `${order.number} - ${order.title}`;
 
             const orderColor = order.color || '#f0f4f8';
@@ -1023,11 +1054,16 @@
 
             const nameSpan = document.createElement('span');
             nameSpan.className = 'order-name';
+
+            // Determine status badge class
+            const statusClass = order.status === 'RETRACTED' ? 'order-status-retracted' : 'order-status-active';
+            const statusText = order.status || 'ACTIVE';
+
             nameSpan.innerHTML = `
               ${order.number} — ${order.title}
               <span class="order-date">${order.date}</span>
               <span class="order-admin">${order.administration || ''}</span>
-              <span class="order-badge">Executive Order</span>
+              <span class="order-status ${statusClass}">${statusText}</span>
             `;
 
             const iconSpan = document.createElement('span');
@@ -1211,11 +1247,11 @@
           {
             acceptNode: function(node) {
               if (node.parentElement.closest('.section-number') ||
-                  node.parentElement.closest('.order-badge') ||
                   node.parentElement.closest('.order-meta') ||
                   node.parentElement.closest('.order-signature') ||
                   node.parentElement.closest('.order-date') ||
-                  node.parentElement.closest('.order-admin')) {
+                  node.parentElement.closest('.order-admin') ||
+                  node.parentElement.closest('.order-status')) {
                 return NodeFilter.FILTER_REJECT;
               }
               return NodeFilter.FILTER_ACCEPT;
