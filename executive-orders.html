@@ -33,7 +33,7 @@
       --code-bg: #f0f4f8;
       --code-border: #b0c4d9;
       --shadow: 0 4px 12px rgba(0,0,0,0.06);
-      --radius: 10px;
+      --radius: 5px;
       --footer-bg: #3d4046;
       --footer-text: #c0d0c8;
       --search-bg: #f7f7f7;
@@ -115,7 +115,7 @@
       font-size: 0.85rem;
       font-weight: 500;
       padding: 0.3rem 0.7rem;
-      border-radius: 4px;
+      border-radius: 5px;
       transition: all 0.2s;
     }
 
@@ -153,19 +153,26 @@
       background: rgba(255,255,255,0.25);
     }
 
-    /* ===== SEARCH BAR ===== */
+    /* ===== SEARCH BAR (below title) ===== */
+    .search-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1rem 6rem 0rem 6rem;
+      width: 100%;
+    }
+
     .search-container {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       background: var(--search-bg);
       border: 1px solid var(--search-border);
-      border-radius: 40px;
+      border-radius: var(--radius);
       padding: 0.2rem 0.2rem 0.2rem 1rem;
       transition: border-color 0.3s, box-shadow 0.3s;
       flex: 1;
       min-width: 180px;
-      max-width: 350px;
+      max-width: 100%;
     }
 
     .search-container:focus-within {
@@ -194,8 +201,8 @@
       background: var(--link-color);
       color: #fff;
       border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
+      padding: 0.4rem 0.6rem;
+      border-radius: var(--radius);
       cursor: pointer;
       font-size: 0.8rem;
       font-weight: 500;
@@ -218,8 +225,8 @@
       border: none;
       color: var(--search-text);
       cursor: pointer;
-      font-size: 1.2rem;
-      padding: 0 0.3rem;
+      font-size: 1.4rem;
+      padding: 0 0.3rem 0 0.8rem;
       opacity: 0.5;
       transition: opacity 0.2s;
       display: none;
@@ -235,15 +242,16 @@
     }
 
     .search-stats {
-      font-size: 0.75rem;
-      opacity: 0.6;
-      margin-left: 0.3rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      padding: 0.2rem 0 0.2rem 1rem;
+      min-height: 1.6rem;
     }
 
     /* ===== FULL-WIDTH SECTION HEADER ===== */
     .section-header-full {
       background: var(--section-header-bg);
-      padding: 1.5rem 1.5rem 2rem;
+      padding: 1.5rem 1.5rem 1rem;
       width: 100%;
       border: none;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
@@ -302,7 +310,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border-light);
       padding: 0.2rem 1rem;
-      border-radius: 40px;
+      border-radius: var(--radius);
       font-size: 0.8rem;
       font-weight: 500;
       display: inline-block;
@@ -314,8 +322,8 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 0.8rem;
-      margin: 1.5rem 0 0.5rem 0;
-      padding: 0.5rem 0;
+      margin: 0rem 0 0.5rem 0;
+      padding: 0rem 0;
     }
 
     .sorting-controls label {
@@ -328,7 +336,7 @@
     .sorting-controls select {
       padding: 0.4rem 1.5rem 0.4rem 0.8rem;
       border: 1px solid var(--border-light);
-      border-radius: 6px;
+      border-radius: var(--radius);
       font-family: 'Roboto', sans-serif;
       font-size: 0.85rem;
       background-color: var(--card-bg);
@@ -377,24 +385,24 @@
       height: 2px;
       border-radius: 2px;
       background: #c0c0c0;
-      opacity: 0.5;
+      opacity: 1;
     }
 
     .admin-divider .admin-label {
       font-weight: 600;
       font-size: 1rem;
       color: var(--text-color);
-      opacity: 0.7;
+      opacity: 0.8;
       white-space: nowrap;
       letter-spacing: 0.5px;
       padding: 0.2rem 0.8rem;
-      border-radius: 4px;
-      background: rgba(0,0,0,0.03);
+      border-radius: var(--radius);
+      background: #d4d4d4;
     }
 
     .admin-divider .admin-count {
       font-size: 0.75rem;
-      opacity: 0.5;
+      opacity: 1;
       font-weight: 400;
     }
 
@@ -416,7 +424,7 @@
     .order-grid {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: .5rem;
       margin-top: 0.5rem;
     }
 
@@ -462,7 +470,7 @@
       font-size: 0.7rem;
       font-weight: 600;
       padding: 0.15rem 0.8rem;
-      border-radius: 6px;
+      border-radius: var(--radius);
       background: #8B4513;
       color: #fff;
       letter-spacing: 0.3px;
@@ -483,7 +491,7 @@
       font-weight: 400;
       background: rgba(0,0,0,0.05);
       padding: 0.1rem 0.6rem;
-      border-radius: 6px;
+      border-radius: var(--radius);
       outline: 1.5px solid #5f5f5f;
       margin-left: 0.3rem;
     }
@@ -534,7 +542,7 @@
       background: var(--code-bg);
       border-left: 5px solid #8B4513;
       padding: 1.2rem 1.5rem;
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
       box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
       line-height: 1.7;
       font-size: 0.95rem;
@@ -598,7 +606,7 @@
       background-color: var(--highlight-bg);
       color: var(--highlight-text);
       padding: 0.1rem 0.2rem;
-      border-radius: 3px;
+      border-radius: var(--radius);
       font-weight: 600;
     }
 
@@ -746,10 +754,13 @@
       }
 
       .section-header-full {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem 0.5rem;
       }
       .section-header-full .section-header-inner {
         padding: 0 0.5rem;
+      }
+      .search-section {
+        padding: 0.5rem 0.5rem 0.5rem;
       }
       main {
         padding: 0 0.5rem;
@@ -795,11 +806,6 @@
       </nav>
       
       <div class="header-actions">
-        <div class="search-container">
-          <input type="text" id="searchInput" placeholder="Search Executive Orders..." />
-          <button id="searchBtn">Search</button>
-          <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
-        </div>
         <button class="toggle-all-btn" id="toggleAllBtn">Expand All</button>
       </div>
     </div>
@@ -820,10 +826,19 @@
             </a>
           </span>
           <span class="stats-badge" id="statsBadge">Loading...</span>
-          <span class="search-stats" id="searchStats"></span>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ===== SEARCH BAR (below title) ===== -->
+  <div class="search-section">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search Executive Orders..." />
+      <button id="searchBtn">Search</button>
+      <button class="search-clear" id="searchClear" aria-label="Clear search">×</button>
+    </div>
+    <div class="search-stats" id="searchStats"></div>
   </div>
 
   <!-- ===== MAIN ===== -->
@@ -1151,10 +1166,12 @@
           });
           searchStats.textContent = '';
           searchClear.classList.remove('visible');
+          searchBtn.style.display = 'inline-block';
           return;
         }
 
         searchClear.classList.add('visible');
+        searchBtn.style.display = 'none';
 
         let matchCount = 0;
         let totalMatches = 0;
@@ -1260,6 +1277,7 @@
       searchInput.addEventListener('input', function() {
         if (!this.value.trim()) {
           searchClear.classList.remove('visible');
+          searchBtn.style.display = 'inline-block';
           performSearch();
         }
       });
@@ -1267,6 +1285,7 @@
       searchClear.addEventListener('click', function() {
         searchInput.value = '';
         searchClear.classList.remove('visible');
+        searchBtn.style.display = 'inline-block';
         performSearch();
         searchInput.focus();
       });
