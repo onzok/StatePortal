@@ -1,7 +1,7 @@
 const EXECUTIVE_ORDERS_DATA = [
   {
-    number: 'EO YYYY-000',
-    title: 'Executive Order Title',
+    number: 'EO YYYY-002',
+    title: 'Executive Order Title 2',
     date: 'Month Day, Year',
     governor: 'ONLYTWENTYCHARACTERS',
     administration: 'ONLYTWENTYCHARACTERS Administration',
@@ -14,8 +14,8 @@ const EXECUTIVE_ORDERS_DATA = [
   },
 
   {
-    number: 'EO YYYY-000',
-    title: 'Executive Order Title',
+    number: 'EO YYYY-001',
+    title: 'Executive Order Title 1',
     date: 'Month Day, Year',
     governor: 'ONLYTWENTYCHARACTERS',
     administration: 'onzok Administration',
