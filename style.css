@@ -45,12 +45,18 @@ body {
   display: flex;
   flex-direction: column;
   animation: none;
+  padding-top: 3.75rem
 }
 
 /* HEADER (shared) */
 header {
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   justify-content: center;
   padding: 0.8rem 1.5rem;
   background: var(--header-bg);
@@ -686,28 +692,33 @@ main {
 }
 
 .status-active {
-  background: #466147c2;
-  color: #ebebeb;
+  background: #d5ded0;
+  color: #4b5246;
+  outline: 1.5px solid #4b5246;
 }
 
 .status-by-conviction {
-  background: #324c69a4;
-  color: #ebebeb;
+  background: #d4c7da;
+  color: #5a4e60;
+  outline: 1.5px solid #5a4e60;
 }
 
 .status-inactive {
-  background: #aa794b;
-  color: #ebebeb;
+  background: #e8e4cc;
+  color: #6a685d;
+  outline: 1.5px solid #6a685d;
 }
 
 .status-admin {
   background: #745994;
   color: #ebebeb;
+  outline: 1.5px solid #ebebeb;
 }
 
 .status-repealed {
-  background: rgb(148, 110, 110);
-  color: #ebebeb;
+  background: #65504d;
+  color: #65504d;
+  outline: 1.5px solid #65504d;
 }
 
 .badge-separator {
@@ -722,12 +733,12 @@ main {
 }
 
 .sentence-badge {
-  font-size: 0.7rem;
-  opacity: 1;
+  display: inline-block;
+  font-size: 0.65rem;
   font-weight: 400;
-  background: rgba(0, 0, 0, 0.05);
   padding: 0.15rem 0.8rem;
   border-radius: 4px;
+  background: rgb(228, 228, 228);
   outline: 1.5px solid #5f5f5f;
 }
 
@@ -743,18 +754,21 @@ main {
 }
 
 .crime-felony {
-  background: #b71c1c;
-  color: #ebebeb;
+  background: #e9cdca;
+  color: #65504d;
+  outline: 1.5px solid #65504d;
 }
 
 .crime-misdemeanor {
-  background: #b9a38b;
-  color: #ebebeb;
+  background: #f4e5dd;
+  color: #524239;
+  outline: 1.5px solid #524239;
 }
 
 .crime-infraction {
-  background: #c9994c;
-  color: #1e1e1e;
+  background: #dfe9ef;
+  color: #546976;
+  outline: 1.5px solid #546976;
 }
 
 /* CODE META (state-code) */

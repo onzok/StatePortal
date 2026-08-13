@@ -3,7 +3,7 @@
 const TITLES_DATA = [
   {
     name: 'Title 1 - Criminal Code',
-    color: '#e3e5f1',
+    color: '#60705b23',
     chapters: [
       {
         name: 'SUBTITLE 1 - OFFENSES AGAINST THE PUBLIC',
@@ -907,7 +907,7 @@ const TITLES_DATA = [
 
   {
     name: 'Title 2 — Vehicle Code',
-    color: '#e9f0ea',
+    color: '#7489a728',
     chapters: [
       {
         name: 'SUBTITLE 1 - OFFENSES RELATING TO MOTOR VEHICLES',
@@ -935,7 +935,7 @@ const TITLES_DATA = [
                 title: 'Felony Reckless Driving',
                 text: 'Any person who commits the offense of reckless driving and who additionally causes bodily injury to another person, causes substantial property damage, or operates a vehicle at a speed exceeding the posted limit by twenty miles per hour or more upon any public roadway shall be guilty of a felony.',
                 subsections: [],
-                crimeType: 'MISDEMEANOR',
+                crimeType: 'FELONY',
                 status: 'ACTIVE',
                 sentence: 'Sentence: Undefined',
               },
