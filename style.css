@@ -726,7 +726,7 @@ main {
   opacity: 1;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.05);
-  padding: 0.1rem 0.6rem;
+  padding: 0.15rem 0.8rem;
   border-radius: 4px;
   outline: 1.5px solid #5f5f5f;
 }

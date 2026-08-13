@@ -3,7 +3,7 @@
 const TITLES_DATA = [
   {
     name: 'Title 1 - Criminal Code',
-    color: '#e0ebdd',
+    color: '#e3e5f1',
     chapters: [
       {
         name: 'SUBTITLE 1 - OFFENSES AGAINST THE PUBLIC',
@@ -907,7 +907,7 @@ const TITLES_DATA = [
 
   {
     name: 'Title 2 — Vehicle Code',
-    color: '#e3eaf6',
+    color: '#e9f0ea',
     chapters: [
       {
         name: 'SUBTITLE 1 - OFFENSES RELATING TO MOTOR VEHICLES',
