@@ -1190,16 +1190,24 @@
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
+        // Remove existing highlights
         document.querySelectorAll('.highlight').forEach(el => {
           const parent = el.parentNode;
           parent.replaceChild(document.createTextNode(el.textContent), el);
           parent.normalize();
         });
 
+        // Reset all order provisions visibility
+        document.querySelectorAll('.order-provision').forEach(provision => {
+          provision.style.display = '';
+        });
+        
+        // Show all order cards
+        allCards.forEach(card => {
+          card.classList.remove('hidden');
+        });
+
         if (!query) {
-          allCards.forEach(card => {
-            card.classList.remove('hidden');
-          });
           searchStats.textContent = '';
           searchClear.classList.remove('visible');
           searchBtn.style.display = 'inline-block';
@@ -1211,38 +1219,61 @@
 
         let matchCount = 0;
         let totalMatches = 0;
+        let matchedCards = new Set();
 
-        allCards.forEach(card => {
-          const text = card.dataset.searchText || '';
+        // First pass: find matches and hide non-matching provisions
+        document.querySelectorAll('.order-provision').forEach(provision => {
+          const text = provision.textContent.toLowerCase();
           const matches = text.includes(query);
 
           if (matches) {
-            card.classList.remove('hidden');
             matchCount++;
-            highlightMatches(card, query);
-            card.classList.add('expanded');
+            matchedCards.add(provision.closest('.order-card'));
+            // Count matches within this provision
+            const provisionText = provision.textContent;
+            const count = (provisionText.toLowerCase().match(new RegExp(query, 'g')) || []).length;
+            totalMatches += count;
+            
+            // Expand the parent order card
+            const card = provision.closest('.order-card');
+            if (card) {
+              card.classList.add('expanded');
+            }
           } else {
-            card.classList.add('hidden');
+            // Hide non-matching provisions
+            provision.style.display = 'none';
           }
         });
 
-        const allText = allCards.map(c => c.dataset.searchText || '').join(' ');
-        const count = (allText.match(new RegExp(query, 'g')) || []).length;
-        totalMatches = count;
+        // Hide order cards that have no matching provisions
+        allCards.forEach(card => {
+          if (!matchedCards.has(card)) {
+            card.classList.add('hidden');
+          } else {
+            card.classList.remove('hidden');
+          }
+        });
+
+        // Highlight matches in visible provisions
+        document.querySelectorAll('.order-provision').forEach(provision => {
+          if (provision.style.display !== 'none') {
+            highlightMatches(provision, query);
+          }
+        });
 
         if (matchCount === 0) {
           searchStats.textContent = 'No results found';
         } else {
-          searchStats.textContent = `${matchCount} order${matchCount > 1 ? 's' : ''} · ${totalMatches} match${totalMatches > 1 ? 'es' : ''}`;
+          searchStats.textContent = `${matchCount} provision${matchCount > 1 ? 's' : ''} · ${totalMatches} match${totalMatches > 1 ? 'es' : ''}`;
         }
 
         toggleAllBtn.textContent = 'Collapse All';
         allExpanded = true;
       }
 
-      function highlightMatches(card, query) {
+      function highlightMatches(element, query) {
         const walker = document.createTreeWalker(
-          card,
+          element,
           NodeFilter.SHOW_TEXT,
           {
             acceptNode: function(node) {
@@ -1314,6 +1345,10 @@
         if (!this.value.trim()) {
           searchClear.classList.remove('visible');
           searchBtn.style.display = 'inline-block';
+          // Reset all provision displays
+          document.querySelectorAll('.order-provision').forEach(provision => {
+            provision.style.display = '';
+          });
           performSearch();
         }
       });
@@ -1322,6 +1357,10 @@
         searchInput.value = '';
         searchClear.classList.remove('visible');
         searchBtn.style.display = 'inline-block';
+        // Reset all provision displays
+        document.querySelectorAll('.order-provision').forEach(provision => {
+          provision.style.display = '';
+        });
         performSearch();
         searchInput.focus();
       });
