@@ -18,17 +18,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://onzok.github.io/StatePortal/" />
 
- <meta name="twitter:card" content="summary_large_image" />
- <meta name="twitter:title" content="State of Fairmont · State Registrar's Portal" />
- <meta name="twitter:description" content="Official laws, regulations, and executive orders of the State of Fairmont." />
- <meta name="twitter:image" content="https://i.imgur.com/JiQgueJ.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="State of Fairmont · State Registrar's Portal" />
+  <meta name="twitter:description" content="Official laws, regulations, and executive orders of the State of Fairmont." />
+  <meta name="twitter:image" content="https://i.imgur.com/JiQgueJ.png" />
 
   <link rel="stylesheet" href="style.css" />
   
 </head>
 <body>
 
-  <!--  HEADER  -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -36,11 +35,11 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!--  NAVIGATION  -->
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="state-code.html" class="active">State Code</a>
         <a href="executive-orders.html">Executive Orders</a>
+        <a href="public-releases.html">Public Releases</a>
       </nav>
       
       <div class="header-actions">
@@ -49,7 +48,6 @@
     </div>
   </header>
 
-  <!--  FULL-WIDTH SECTION HEADER  -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Fairmont State Code</h2>
@@ -69,7 +67,6 @@
     </div>
   </div>
 
-  <!--  SEARCH BAR (below title)  -->
   <div class="search-section">
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Search F.S.C..." />
@@ -79,16 +76,13 @@
     <div class="search-stats" id="searchStats"></div>
   </div>
 
-  <!--  MAIN  -->
   <main>
     <section>
       <div class="title-grid" id="titleGrid">
-        <!-- Injected by JavaScript -->
       </div>
     </section>
   </main>
 
-  <!--  FOOTER  -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -105,15 +99,12 @@
     </div>
   </footer>
 
-  <!--  PROVISIONS DATA (external)  -->
   <script src="provisions.js"></script>
 
-  <!--  MAIN APPLICATION  -->
   <script>
     (function() {
       'use strict';
 
-      // ----- DOM refs -----
       const toggleAllBtn = document.getElementById('toggleAllBtn');
       const searchInput = document.getElementById('searchInput');
       const searchBtn = document.getElementById('searchBtn');
@@ -126,7 +117,6 @@
       let titlesData = [];
       let allCards = [];
 
-      // ----- Expand / Collapse All -----
       toggleAllBtn.addEventListener('click', function() {
         allExpanded = !allExpanded;
         const cards = document.querySelectorAll('.title-card');
@@ -140,7 +130,6 @@
         this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
       });
 
-      // ----- Get data from external provisions.js -----
       if (typeof TITLES_DATA !== 'undefined') {
         titlesData = TITLES_DATA;
       } else {
@@ -167,12 +156,10 @@
         ];
       }
 
-      //  RENDER FUNCTION 
       function renderCards() {
         grid.innerHTML = '';
         allCards = [];
 
-        // Count totals
         let totalTitles = titlesData.length;
         let totalSubtitles = 0;
         let totalChapters = 0;
@@ -202,7 +189,6 @@
 
         statsBadge.textContent = `${totalTitles} titles · ${totalSubtitles} subtitles · ${totalChapters} chapters · ${totalProvisions} provisions · ${totalSubsections} subsections`;
 
-        // Build each title card
         titlesData.forEach((title, index) => {
           const card = document.createElement('div');
           card.className = 'title-card';
@@ -276,7 +262,6 @@
                       const titleWrapper = document.createElement('span');
                       titleWrapper.className = 'provision-title-wrapper';
 
-                      // Title
                       if (provision.title && provision.title.trim() !== '') {
                         const titleSpan = document.createElement('span');
                         titleSpan.className = 'provision-title';
@@ -284,10 +269,8 @@
                         titleWrapper.appendChild(titleSpan);
                       }
 
-                      // Build badge group with separators
                       let hasBadges = false;
 
-                      // Status badge
                       if (provision.status) {
                         const statusSpan = document.createElement('span');
                         const statusClass = provision.status.toLowerCase().replace(/\s+/g, '-');
@@ -297,7 +280,6 @@
                         hasBadges = true;
                       }
 
-                      // Crime type badge (optional)
                       if (provision.crimeType) {
                         if (hasBadges) {
                           const sep = document.createElement('span');
@@ -313,7 +295,6 @@
                         hasBadges = true;
                       }
 
-                      // Sentence badge (optional)
                       if (provision.sentence) {
                         if (hasBadges) {
                           const sep = document.createElement('span');
@@ -332,13 +313,11 @@
                         contentWrapper.appendChild(titleWrapper);
                       }
 
-                      // Text
                       const textSpan = document.createElement('span');
                       textSpan.className = 'provision-text';
                       textSpan.textContent = provision.text || '';
                       contentWrapper.appendChild(textSpan);
 
-                      // Subsections (with left border and indent)
                       if (provision.subsections && Array.isArray(provision.subsections) && provision.subsections.length > 0) {
                         const subContainer = document.createElement('div');
                         subContainer.className = 'subsection-container';
@@ -425,23 +404,19 @@
 
       renderCards();
 
-      //  SEARCH FUNCTIONALITY 
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
-        // Remove existing highlights
         document.querySelectorAll('.highlight').forEach(el => {
           const parent = el.parentNode;
           parent.replaceChild(document.createTextNode(el.textContent), el);
           parent.normalize();
         });
 
-        // Reset all provisions visibility
         document.querySelectorAll('.provision').forEach(provision => {
           provision.style.display = '';
         });
         
-        // Show all title cards
         allCards.forEach(card => {
           card.classList.remove('hidden');
         });
@@ -460,7 +435,6 @@
         let totalMatches = 0;
         let matchedCards = new Set();
 
-        // First pass: find matches and hide non-matching provisions
         document.querySelectorAll('.provision').forEach(provision => {
           const text = provision.textContent.toLowerCase();
           const matches = text.includes(query);
@@ -468,23 +442,19 @@
           if (matches) {
             matchCount++;
             matchedCards.add(provision.closest('.title-card'));
-            // Count matches within this provision
             const provisionText = provision.textContent;
             const count = (provisionText.toLowerCase().match(new RegExp(query, 'g')) || []).length;
             totalMatches += count;
             
-            // Expand the parent title card
             const card = provision.closest('.title-card');
             if (card) {
               card.classList.add('expanded');
             }
           } else {
-            // Hide non-matching provisions
             provision.style.display = 'none';
           }
         });
 
-        // Hide title cards that have no matching provisions
         allCards.forEach(card => {
           if (!matchedCards.has(card)) {
             card.classList.add('hidden');
@@ -493,7 +463,6 @@
           }
         });
 
-        // Highlight matches in visible provisions
         document.querySelectorAll('.provision').forEach(provision => {
           if (provision.style.display !== 'none') {
             highlightMatches(provision, query);
@@ -587,7 +556,6 @@
         if (!this.value.trim()) {
           searchClear.classList.remove('visible');
           searchBtn.style.display = 'inline-block';
-          // Reset all provision displays
           document.querySelectorAll('.provision').forEach(provision => {
             provision.style.display = '';
           });
@@ -599,7 +567,6 @@
         searchInput.value = '';
         searchClear.classList.remove('visible');
         searchBtn.style.display = 'inline-block';
-        // Reset all provision displays
         document.querySelectorAll('.provision').forEach(provision => {
           provision.style.display = '';
         });
@@ -607,7 +574,6 @@
         searchInput.focus();
       });
 
-      //  SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY 
       const mainElement = document.querySelector('main');
 
       function animateMainIn() {

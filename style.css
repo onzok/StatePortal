@@ -716,7 +716,7 @@ main {
 }
 
 .status-repealed {
-  background: #65504d;
+  background: #e9cdca;
   color: #65504d;
   outline: 1.5px solid #65504d;
 }
@@ -837,14 +837,14 @@ main {
 }
 
 .order-admin {
-  font-size: 0.7rem;
-  opacity: 1;
+  display: inline-block;
+  font-size: 0.65rem;
   font-weight: 400;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 0.1rem 0.6rem;
-  border-radius: var(--radius);
+  padding: 0.15rem 0.8rem;
+  border-radius: 4px;
+  background: rgb(228, 228, 228);
   outline: 1.5px solid #5f5f5f;
-  margin-left: 0.3rem;
+  line-height: 1.6;
 }
 
 .order-card.retracted .order-provision .provision-text,
@@ -858,23 +858,27 @@ main {
 }
 
 .order-status {
-  font-size: 0.7rem;
+  display: inline-block;
+  font-size: 0.65rem;
   font-weight: 600;
   padding: 0.15rem 0.8rem;
-  border-radius: var(--radius);
+  border-radius: 4px;
+  text-transform: uppercase;
   letter-spacing: 0.3px;
-  opacity: 0.85;
-  margin-left: 0.3rem;
+  vertical-align: middle;
+  line-height: 1.6;
 }
 
 .order-status-active {
-  background: #2e7d32;
-  color: #fff;
+  background: #d5ded0;
+  color: #4b5246;
+  outline: 1.5px solid #4b5246;
 }
 
 .order-status-retracted {
-  background: #c62828;
-  color: #fff;
+  background: #e9cdca;
+  color: #65504d;
+  outline: 1.5px solid #65504d;
 }
 
 .order-block {

@@ -27,7 +27,6 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -35,11 +34,11 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!-- ===== NAVIGATION ===== -->
       <nav class="header-nav">
         <a href="index.html" class="active">Home</a>
         <a href="state-code.html">State Code</a>
         <a href="executive-orders.html">Executive Orders</a>
+        <a href="public-releases.html">Public Releases</a>
       </nav>
       
       <div class="header-actions">
@@ -48,7 +47,6 @@
     </div>
   </header>
 
-  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Welcome!</h2>
@@ -62,11 +60,9 @@
     </div>
   </div>
 
-  <!-- ===== MAIN ===== -->
   <main>
     <section>
       <div class="home-grid">
-        <!-- State Code Card -->
         <a href="state-code.html" class="home-card">
           <div>
             <span class="card-title">State Code</span>
@@ -79,7 +75,6 @@
           <div class="card-arrow">→</div>
         </a>
 
-        <!-- Executive Orders Card -->
         <a href="executive-orders.html" class="home-card">
           <div>
             <span class="card-title">Executive Orders</span>
@@ -93,9 +88,23 @@
         </a>
       </div>
     </section>
+
+    <section style="margin-top: 2.5rem; border-top: 2px solid var(--border-light); padding-top: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem;">
+        <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--text-color); letter-spacing: -0.2px;">State Registrar's Public Releases</h3>
+      </div>
+      <p style="opacity: 0.7; margin-bottom: 1.2rem; font-size: 0.95rem;">Official announcements, notices, and publications from the Office of the State Registrar.</p>
+
+      <div id="homeReleasesContainer" style="display: flex; flex-direction: column; gap: 0.6rem;">
+        <div style="text-align: center; padding: 1rem; opacity: 0.6;">Loading releases...</div>
+      </div>
+
+      <div style="margin-top: 1rem; text-align: center;">
+        <a href="public-releases.html" style="color: var(--link-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; border-bottom: 1px dotted currentColor; transition: border-color 0.2s;">View All Public Releases →</a>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -112,7 +121,6 @@
     </div>
   </footer>
 
-  <!-- ===== SMOOTH PAGE TRANSITIONS ===== -->
   <script>
     (function() {
       'use strict';
@@ -158,6 +166,42 @@
           animateMainIn();
         }, 50);
       });
+    })();
+  </script>
+
+  <script src="releases-data.js"></script>
+
+  <script>
+    (function() {
+      'use strict';
+
+      const container = document.getElementById('homeReleasesContainer');
+
+      function renderHomeReleases() {
+        const topReleases = window.getRecentReleases(3);
+
+        let html = '';
+        topReleases.forEach(r => {
+          html += `
+            <div style="background: var(--card-bg); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 0.8rem 1.2rem; box-shadow: var(--shadow); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; transition: border-color 0.2s;" 
+                 onmouseover="this.style.borderColor='var(--link-color)'" 
+                 onmouseout="this.style.borderColor='var(--border-light)'">
+              <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; flex: 1; min-width: 200px;">
+                <div>
+                  <span style="font-weight: 600; font-size: 0.95rem;">${r.title}</span>
+                </div>
+                <span style="font-size: 0.75rem; opacity: 0.5;">${r.date}</span>
+              </div>
+              <a href="${r.pdfLink}" target="_blank" rel="noopener noreferrer" style="color: var(--link-color); text-decoration: none; font-size: 0.85rem; font-weight: 500; white-space: nowrap; border-bottom: 1px dotted currentColor; padding: 0.3rem 0.5rem; flex-shrink: 0;">View PDF →</a>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+      }
+
+      renderHomeReleases();
+
     })();
   </script>
 

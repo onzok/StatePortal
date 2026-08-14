@@ -28,7 +28,6 @@
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
   <header>
     <div class="header-inner">
       <div class="header-left">
@@ -36,11 +35,11 @@
         <h1>State of Fairmont</h1>
       </div>
       
-      <!-- ===== NAVIGATION ===== -->
       <nav class="header-nav">
         <a href="index.html">Home</a>
         <a href="state-code.html">State Code</a>
         <a href="executive-orders.html" class="active">Executive Orders</a>
+        <a href="public-releases.html">Public Releases</a>
       </nav>
       
       <div class="header-actions">
@@ -49,7 +48,6 @@
     </div>
   </header>
 
-  <!-- ===== FULL-WIDTH SECTION HEADER ===== -->
   <div class="section-header-full">
     <div class="section-header-inner">
       <h2 class="section-title">Executive Orders</h2>
@@ -69,7 +67,6 @@
     </div>
   </div>
 
-  <!-- ===== SEARCH BAR (below title) ===== -->
   <div class="search-section">
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Search Executive Orders..." />
@@ -79,10 +76,8 @@
     <div class="search-stats" id="searchStats"></div>
   </div>
 
-  <!-- ===== MAIN ===== -->
   <main>
     <section>
-      <!-- ===== SORTING CONTROLS ===== -->
       <div class="sorting-controls">
         <label for="administrationFilter">Filter by Administration:</label>
         <select id="administrationFilter">
@@ -92,12 +87,10 @@
       </div>
 
       <div class="order-grid" id="orderGrid">
-        <!-- Injected by JavaScript -->
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">State of Fairmont</div>
@@ -114,15 +107,12 @@
     </div>
   </footer>
 
-  <!-- ===== EXECUTIVE ORDERS DATA (external) ===== -->
   <script src="executive-orders-data.js"></script>
 
-  <!-- ===== MAIN APPLICATION ===== -->
   <script>
     (function() {
       'use strict';
 
-      // ----- DOM refs -----
       const toggleAllBtn = document.getElementById('toggleAllBtn');
       const searchInput = document.getElementById('searchInput');
       const searchBtn = document.getElementById('searchBtn');
@@ -138,7 +128,6 @@
       let currentFilter = 'all';
       let filteredOrders = [];
 
-      // ----- Get data from external executive-orders-data.js -----
       let ordersData = [];
       if (typeof EXECUTIVE_ORDERS_DATA !== 'undefined') {
         ordersData = EXECUTIVE_ORDERS_DATA;
@@ -161,7 +150,6 @@
         ];
       }
 
-      // ----- Populate administration filter -----
       function populateAdminFilter() {
         const administrations = new Set();
         ordersData.forEach(order => {
@@ -181,7 +169,6 @@
         });
       }
 
-      // ----- Filter orders by administration -----
       function filterOrders() {
         const filterValue = adminFilter.value;
         currentFilter = filterValue;
@@ -196,12 +183,10 @@
         renderFilteredCards();
       }
 
-      // ===== RENDER FUNCTION WITH ADMIN DIVIDERS =====
       function renderFilteredCards() {
         grid.innerHTML = '';
         allCards = [];
 
-        // Group orders by administration
         const groupedOrders = {};
         filteredOrders.forEach(order => {
           const admin = order.administration || 'Unknown Administration';
@@ -220,12 +205,10 @@
 
         statsBadge.textContent = `${filteredOrders.length} orders · ${totalProvisions} provisions`;
 
-        // Build each administration group
         const adminKeys = Object.keys(groupedOrders);
         adminKeys.forEach((admin, adminIndex) => {
           const orders = groupedOrders[admin];
 
-          // ----- ADMIN DIVIDER (neutral gray) -----
           const divider = document.createElement('div');
           divider.className = 'admin-divider';
           if (adminIndex === 0) {
@@ -248,7 +231,6 @@
           divider.appendChild(lineSpan);
           grid.appendChild(divider);
 
-          // Build each order card in this administration
           orders.forEach((order, index) => {
             const card = document.createElement('div');
             card.className = 'order-card';
@@ -259,14 +241,12 @@
 
             const orderColor = order.color || '#f0f4f8';
 
-            // ----- HEADER -----
             const header = document.createElement('div');
             header.className = 'order-card-header';
 
             const nameSpan = document.createElement('span');
             nameSpan.className = 'order-name';
 
-            // Determine status badge class
             const statusClass = order.status === 'RETRACTED' ? 'order-status-retracted' : 'order-status-active';
             const statusText = order.status || 'ACTIVE';
 
@@ -284,7 +264,6 @@
             header.appendChild(nameSpan);
             header.appendChild(iconSpan);
 
-            // ----- CONTENT -----
             const content = document.createElement('div');
             content.className = 'order-content';
 
@@ -296,7 +275,6 @@
             orderBlock.style.backgroundColor = orderColor;
             orderBlock.style.borderLeftColor = darkenColor(orderColor, 40);
 
-            // Build provisions with two-column layout
             if (order.provisions && order.provisions.length > 0) {
               order.provisions.forEach((item) => {
                 const provisionDiv = document.createElement('div');
@@ -316,7 +294,6 @@
               });
             }
 
-            // Add signature
             if (order.signature) {
               const signature = document.createElement('div');
               signature.className = 'order-signature';
@@ -337,34 +314,29 @@
 
             allCards.push(card);
 
-            // ----- Toggle on header click -----
             header.addEventListener('click', function(e) {
               e.stopPropagation();
               card.classList.toggle('expanded');
             });
 
-            // Expand first card of first administration by default
             if (adminIndex === 0 && index === 0) {
               card.classList.add('expanded');
             }
           });
         });
 
-        // Update "Expand All" button state
         const allExpandedDefault = allCards.every(c => c.classList.contains('expanded'));
         if (allExpandedDefault) {
           toggleAllBtn.textContent = 'Collapse All';
           allExpanded = true;
         }
 
-        // Store text content for search
         allCards.forEach(card => {
           const textContent = card.textContent || '';
           card.dataset.searchText = textContent.toLowerCase();
         });
       }
 
-      // ----- Helper: darken a color for the border -----
       function darkenColor(hex, amount) {
         let color = hex.replace('#', '');
         let r = parseInt(color.substring(0, 2), 16);
@@ -376,7 +348,6 @@
         return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
       }
 
-      // ----- Expand / Collapse All -----
       toggleAllBtn.addEventListener('click', function() {
         allExpanded = !allExpanded;
         const cards = document.querySelectorAll('.order-card');
@@ -390,30 +361,25 @@
         this.textContent = allExpanded ? 'Collapse All' : 'Expand All';
       });
 
-      // ----- Administration filter event listener -----
       adminFilter.addEventListener('change', function() {
         filterOrders();
         allExpanded = false;
         toggleAllBtn.textContent = 'Expand All';
       });
 
-      // ===== SEARCH FUNCTIONALITY =====
       function performSearch() {
         const query = searchInput.value.trim().toLowerCase();
 
-        // Remove existing highlights
         document.querySelectorAll('.highlight').forEach(el => {
           const parent = el.parentNode;
           parent.replaceChild(document.createTextNode(el.textContent), el);
           parent.normalize();
         });
 
-        // Reset all order provisions visibility
         document.querySelectorAll('.order-provision').forEach(provision => {
           provision.style.display = '';
         });
         
-        // Show all order cards
         allCards.forEach(card => {
           card.classList.remove('hidden');
         });
@@ -432,7 +398,6 @@
         let totalMatches = 0;
         let matchedCards = new Set();
 
-        // First pass: find matches and hide non-matching provisions
         document.querySelectorAll('.order-provision').forEach(provision => {
           const text = provision.textContent.toLowerCase();
           const matches = text.includes(query);
@@ -440,23 +405,19 @@
           if (matches) {
             matchCount++;
             matchedCards.add(provision.closest('.order-card'));
-            // Count matches within this provision
             const provisionText = provision.textContent;
             const count = (provisionText.toLowerCase().match(new RegExp(query, 'g')) || []).length;
             totalMatches += count;
             
-            // Expand the parent order card
             const card = provision.closest('.order-card');
             if (card) {
               card.classList.add('expanded');
             }
           } else {
-            // Hide non-matching provisions
             provision.style.display = 'none';
           }
         });
 
-        // Hide order cards that have no matching provisions
         allCards.forEach(card => {
           if (!matchedCards.has(card)) {
             card.classList.add('hidden');
@@ -465,7 +426,6 @@
           }
         });
 
-        // Highlight matches in visible provisions
         document.querySelectorAll('.order-provision').forEach(provision => {
           if (provision.style.display !== 'none') {
             highlightMatches(provision, query);
@@ -542,7 +502,6 @@
         });
       }
 
-      // ----- Search event listeners -----
       searchBtn.addEventListener('click', performSearch);
 
       searchInput.addEventListener('keydown', function(e) {
@@ -556,7 +515,6 @@
         if (!this.value.trim()) {
           searchClear.classList.remove('visible');
           searchBtn.style.display = 'inline-block';
-          // Reset all provision displays
           document.querySelectorAll('.order-provision').forEach(provision => {
             provision.style.display = '';
           });
@@ -568,7 +526,6 @@
         searchInput.value = '';
         searchClear.classList.remove('visible');
         searchBtn.style.display = 'inline-block';
-        // Reset all provision displays
         document.querySelectorAll('.order-provision').forEach(provision => {
           provision.style.display = '';
         });
@@ -576,7 +533,6 @@
         searchInput.focus();
       });
 
-      // ===== SMOOTH PAGE TRANSITIONS - MAIN SECTION ONLY =====
       const mainElement = document.querySelector('main');
 
       function animateMainIn() {
@@ -619,11 +575,9 @@
         }, 50);
       });
 
-      // ----- Initialize -----
       populateAdminFilter();
       filterOrders();
 
-      // ----- Expose rebuild for console debugging -----
       window.rebuildCards = filterOrders;
 
       console.log('Brought to you by State Registrar 1onzok.');
