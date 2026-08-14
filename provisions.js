@@ -3,7 +3,7 @@
 const TITLES_DATA = [
   {
     name: 'Title 1 - Criminal Code',
-    color: '#60705b23',
+    color: '#a5bb9d23',
     chapters: [
       {
         name: 'SUBTITLE 1 - OFFENSES AGAINST THE PUBLIC',
